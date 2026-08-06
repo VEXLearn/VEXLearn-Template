@@ -3,7 +3,7 @@
     <img src="docs/images/vexlearn-icon.png" alt="VEXLearn logo" width="132">
   </picture>
   <h1>VEXLearn Template</h1>
-  <p><strong>Super Simpler Beginner Learning Template for VEX V5</strong></p>
+  <p><strong>A beginner-friendly VEX V5 C++ template designed for learning through documented, editable robot code.</strong></p>
   <p>
     <img src="https://img.shields.io/badge/platform-VEX%20V5-d22630" alt="VEX V5">
     <img src="https://img.shields.io/badge/C%2B%2B-11-00599c" alt="C++11">
