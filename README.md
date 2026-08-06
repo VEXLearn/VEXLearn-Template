@@ -7,7 +7,8 @@
   <p>
     <img src="https://img.shields.io/badge/platform-VEX%20V5-d22630" alt="VEX V5">
     <img src="https://img.shields.io/badge/C%2B%2B-11-00599c" alt="C++11">
-    <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest"><img src="https://img.shields.io/github/v/release/VEXLearn/VEXLearn-Template?include_prereleases" alt="Latest release"></a>
+    <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest"><img src="https://img.shields.io/github/v/release/VEXLearn/VEXLearn-Template" alt="Latest release"></a>
+    <a href="https://github.com/VEXLearn/VEXLearn-Template/actions/workflows/validate.yml"><img src="https://github.com/VEXLearn/VEXLearn-Template/actions/workflows/validate.yml/badge.svg" alt="Repository validation"></a>
     <a href="LICENSE"><img src="https://img.shields.io/github/license/VEXLearn/VEXLearn-Template" alt="MIT License"></a>
   </p>
 </div>
@@ -16,7 +17,7 @@
 
 VEXLearn is a beginner-focused teaching template for tank-drive VEX V5 robots. Its source files include introductions, structure explanations, inline comments, and troubleshooting guidance so new programmers can learn from working code instead of a black-box library.
 
-The `main` branch currently contains the v1.0.0 release candidate. Hardware and clean-install testing must be completed before the stable v1.0.0 release is published.
+Version 1.0.0 is the current stable release on the `main` branch.
 
 ## Features
 
@@ -49,8 +50,8 @@ Do not install Microsoft's Makefile Tools extension when prompted. The official 
 ```text
 template/       Clean VEX V5 C++ project source
 docs/           Static VEXLearn website served by GitHub Pages
-.github/        Issue forms and pull-request guidance
-CHANGELOG.md    Release history and v1.0.0 release-candidate changes
+.github/        Community templates and repository validation
+CHANGELOG.md    Release history
 ```
 
 Generated VEX build files and packaged release assets are intentionally excluded from the tracked source.

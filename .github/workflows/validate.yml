@@ -1,0 +1,43 @@
+name: Repository validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The proprietary VEX toolchain is unavailable in Actions, so this checks every portable release requirement.
+      - name: Validate repository and package template
+        run: python scripts/validate_repository.py
+
+      - name: Check JavaScript syntax
+        run: node --check docs/script.js
+
+      - name: Upload reproducible template package
+        uses: actions/upload-artifact@v4
+        with:
+          name: VEXLearn.Template.V1.0.0
+          path: dist/VEXLearn.Template.V1.0.0.zip
+          if-no-files-found: error
