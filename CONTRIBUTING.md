@@ -26,4 +26,4 @@ VEX compilation and physical-robot testing are expected for movement or hardware
 - Preserve public API names unless the change explicitly requires a breaking release.
 - Keep examples consistent across source comments, the website, and the PDF guide.
 
-By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+By participating, you agree to follow the [Community Guidelines](COMMUNITY_GUIDELINES.md).
