@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VEX Concepts – VEXLearn</title>
+  <meta name="description" content="Learn VEX V5 objects, ports, motors, threads, PID control, voltage control, and inertial heading.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/vex-concepts.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VEX Concepts - VEXLearn">
+  <meta property="og:description" content="Core hardware and control concepts used in VEX V5 C++ programs.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/vex-concepts.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>VEX Concepts - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
   <style>
@@ -63,7 +71,7 @@
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -77,15 +85,15 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
@@ -96,13 +104,13 @@
         <li><a href="#downloading">Downloading Software</a></li>
         <li><a href="#oop">OOP &amp; VEX Objects</a></li>
         <li><a href="#ports">How Ports Work</a></li>
-        <li><a href="#gear-ratio">Gear Ratio &amp; Software</a></li>
-        <li><a href="#motors">6 vs 12 Watt Motors</a></li>
+        <li><a href="#gear-ratio">Gear Ratio and Software</a></li>
+        <li><a href="#motors">6-Watt vs. 12-Watt Motors</a></li>
         <li><a href="#threads">VEX Threads</a></li>
         <li><a href="#pid">PID Controller</a></li>
         <li class="toc-sub"><a href="#integral-windup">Integral Windup</a></li>
         <li class="toc-sub"><a href="#pid-visualizer">Interactive PID Demo</a></li>
-        <li><a href="#volt-vs-rpm">Volt vs RPM Control</a></li>
+        <li><a href="#volt-vs-rpm">Voltage vs. RPM Control</a></li>
         <li><a href="#heading">Absolute Heading</a></li>
       </ul>
     </aside>
@@ -138,7 +146,7 @@
         <li>
           Plug the Micro-USB side (smaller) into your <strong>controller</strong> or directly into the <strong>VEX Brain</strong>
           <div class="callout info" style="margin-top:10px;">
-            <span class="callout-icon">ℹ️</span>
+            <span class="callout-icon" aria-hidden="true">&#9432;</span>
             <div class="callout-content">
               <p>If connecting via the controller, the controller must already be paired to the Brain wirelessly.</p>
             </div>
@@ -149,7 +157,7 @@
       </ol>
 
       <!-- OOP -->
-      <h2 id="oop">Object Oriented Programming &amp; VEX Objects</h2>
+      <h2 id="oop">Object-Oriented Programming &amp; VEX Objects</h2>
       <p>Object-oriented programming (OOP) organizes code into objects, each representing a real-world thing. A <strong>class</strong> is the blueprint; an <strong>object</strong> is the actual instance built from it.</p>
 
       <div class="code-block">
@@ -225,15 +233,15 @@ Brain.ThreeWirePort.H</code></pre>
       </div>
 
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>If a part isn't connected to the Brain with a cable, it won't appear in software, even if it's configured correctly in <code>robotConfig.cpp</code>.</p>
         </div>
       </div>
 
       <!-- Gear Ratio -->
-      <h2 id="gear-ratio">Gear Ratio's Effect on Software</h2>
-      <p>Gear ratio matters in the <code>move()</code> and <code>moveRPM()</code> functions and in motor initialization. It's used to calculate accurate distances. Always confirm the gear ratio with your builder.</p>
+      <h2 id="gear-ratio">How Gear Ratio Affects Software</h2>
+      <p>Gear ratio matters in the <code>move()</code> function and in motor initialization. It is used to calculate accurate distances. Always confirm the gear ratio with your builder.</p>
 
       <div class="code-block">
         <div class="code-block-header"><span class="code-lang">C++ - Motor initialization with gear ratio</span><button class="copy-btn">Copy</button></div>
@@ -248,13 +256,13 @@ motor Motor = motor(PORT1, ratio6_1, false);
 double gearRatio = 4.0 / 3.0;</code></pre>
       </div>
 
-      <!-- 6 vs 12 Watt -->
-      <h2 id="motors">6 vs 12 Watt Motors</h2>
+      <!-- 6-Watt vs. 12-Watt Motors -->
+      <h2 id="motors">6-Watt vs. 12-Watt Motors</h2>
       <p>The only software difference between 6W and 12W motors is how they're initialized:</p>
 
       <div class="compare-grid">
         <div class="compare-card">
-          <h4>6 Watt Motors</h4>
+          <h4>6-Watt Motors</h4>
           <ul>
             <li>No internal gear cartridge</li>
             <li>No gear ratio argument in initialization</li>
@@ -262,7 +270,7 @@ double gearRatio = 4.0 / 3.0;</code></pre>
           </ul>
         </div>
         <div class="compare-card">
-          <h4>12 Watt Motors</h4>
+          <h4>12-Watt Motors</h4>
           <ul>
             <li>Has swappable gear cartridge</li>
             <li>Requires gear ratio argument (<code>ratio6_1</code>, etc.)</li>
@@ -272,7 +280,7 @@ double gearRatio = 4.0 / 3.0;</code></pre>
       </div>
 
       <div class="callout info">
-        <span class="callout-icon">ℹ️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Both motor types deliver 12 volts at full power, so there is no difference in your voltage-based control code.</p>
         </div>
@@ -296,7 +304,7 @@ thread screenThread2(ControllerRender);
       </div>
 
       <div class="callout info">
-        <span class="callout-icon">ℹ️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Aside from the screen render threads already in the template, threads aren't frequently needed in most VEX programs.</p>
         </div>
@@ -349,7 +357,7 @@ volt_now = (Kp * distError) + (Ki * distErrorInt) + (Kd * (distError - distError
       </ol>
 
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Running at max voltage (12V) leads to inaccuracies. A lower cap like 6-8V is fast enough and much more consistent. The power cap is set as the <code>volt_max</code> argument in the <code>move()</code> call.</p>
         </div>
@@ -386,7 +394,7 @@ if (distError * distErrorPrev < 0) {
       <p>If the curve rises above 1.0 before settling, the robot has <strong>overshot</strong> the target. In a real robot this means it drove past the goal and had to slow down or back up slightly to correct. Adjust the sliders and click <strong>Animate</strong> to see a live run.</p>
 
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <strong>Simulation vs. Real Robot</strong><br>
           This demo uses a simplified physics model. It assumes constant friction, perfect motor response, and no mechanical noise. Your actual robot has gear slop, uneven floor surfaces, battery voltage drop, and sensor lag that this simulation cannot account for. Use these sliders to build intuition for how each gain affects behavior, then always <strong>tune your PID values on the physical robot</strong> before competition.
@@ -417,16 +425,17 @@ if (distError * distErrorPrev < 0) {
             </div>
           </div>
         </div>
-        <canvas id="pid-canvas"></canvas>
-        <button class="pid-btn" id="pid-run">&#9654; Animate</button>
+        <canvas id="pid-canvas" role="img" aria-label="Graph of a simulated PID controller approaching its target" aria-describedby="pid-status"></canvas>
+        <p id="pid-status" class="sr-only" aria-live="polite"></p>
+        <button class="pid-btn" id="pid-run" type="button">&#9654; Animate</button>
       </div>
 
-      <!-- Volt vs RPM -->
-      <h2 id="volt-vs-rpm">Volt Control vs RPM Control</h2>
+      <!-- Voltage vs. RPM -->
+      <h2 id="volt-vs-rpm">Voltage Control vs. RPM Control</h2>
 
       <div class="compare-grid">
         <div class="compare-card winner">
-          <h4>&#10003; Volt Control (Recommended)</h4>
+          <h4>&#10003; Voltage Control (Recommended)</h4>
           <ul>
             <li>Directly sets how much power the motor receives</li>
             <li>No speed cap: motors can exceed rated RPM when unloaded</li>
@@ -448,15 +457,15 @@ if (distError * distErrorPrev < 0) {
       <p>VEX DC motors follow this relationship:</p>
       <div class="code-block">
         <div class="code-block-header"><span class="code-lang">Concept</span><button class="copy-btn">Copy</button></div>
-        <pre><code class="language-cpp">// More voltage → more speed
-// Less voltage → less speed
-// voltage + current → speed + torque
+        <pre><code class="language-cpp">// More voltage -&gt; more speed
+// Less voltage -&gt; less speed
+// voltage + current -&gt; speed + torque
 
-// Volt control in VEX:
+// Voltage control in VEX:
 Motor.spin(forward, 6, volt);   // 6 volts forward
 Motor.spin(forward, -6, volt);  // 6 volts reverse
 
-// vs RPM control (avoid for PID):
+// RPM control (avoid for external PID):
 Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
       </div>
 
@@ -481,14 +490,14 @@ Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
       </div>
 
       <div class="callout info">
-        <span class="callout-icon">💡</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Absolute heading is much easier for autonomous programming; you don't need to track the cumulative result of every previous turn. Just set a target heading and go.</p>
         </div>
       </div>
 
       <h3>Inertial.setHeading()</h3>
-      <p>If your robot starts at an angle that isn't 0°, use <code>setHeading()</code> at the start of your autonomous function to re-zero the sensor:</p>
+      <p>If your robot starts at an angle that isn't 0 degrees, use <code>setHeading()</code> at the start of your autonomous function to set the sensor's reference heading:</p>
 
       <div class="code-block">
         <div class="code-block-header"><span class="code-lang">C++ - auto.cpp example</span><button class="copy-btn">Copy</button></div>
@@ -496,10 +505,10 @@ Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
     // Robot starts facing 90 degrees - tell the sensor that
     Inertial.setHeading(90, degrees);
 
-    // Now all movement functions use 90° as the reference
-    move(500, 90, 8);   // move 500mm forward, facing 90°
-    turn(0, 6);         // turn to face 0°
-    move(300, 0, 8);    // move 300mm forward, facing 0°
+    // Now all movement functions use 90 degrees as the reference
+    move(50, 90, 8);   // move 50 cm forward, facing 90 degrees
+    turn(0, 6);        // turn to face 0 degrees
+    move(30, 0, 8);    // move 30 cm forward, facing 0 degrees
 }</code></pre>
       </div>
 
@@ -510,7 +519,7 @@ Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
         <div class="footer-nav">
           <a href="index.html" class="footer-nav-link next">Back to Home &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

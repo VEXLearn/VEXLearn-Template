@@ -22,21 +22,34 @@ function initMobileNav() {
   const sidebar = document.querySelector('.sidebar');
   if (!hamburger || !sidebar) return;
 
+  function setOpen(open) {
+    sidebar.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  }
+
   hamburger.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
+    setOpen(!sidebar.classList.contains('open'));
   });
 
   // Close sidebar when clicking a link inside it
   sidebar.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      sidebar.classList.remove('open');
+      setOpen(false);
     });
   });
 
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-      sidebar.classList.remove('open');
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      setOpen(false);
+      hamburger.focus();
     }
   });
 }
@@ -50,6 +63,7 @@ function initActiveNav() {
     const href = a.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
     }
   });
 }
@@ -93,31 +107,34 @@ function initCopyButtons() {
     const code = block.querySelector('code');
     if (!btn || !code) return;
 
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-live', 'polite');
+
+    function showStatus(message, copied) {
+      btn.textContent = message;
+      btn.classList.toggle('copied', copied);
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+
     btn.addEventListener('click', () => {
       const text = code.innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 2000);
+      const copy = navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject();
+      copy.then(() => {
+        showStatus('Copied!', true);
       }).catch(() => {
-        // Fallback
+        // Uses the older copy command only when the Clipboard API is unavailable.
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.style.position = 'fixed';
         ta.style.opacity = '0';
         document.body.appendChild(ta);
         ta.select();
-        document.execCommand('copy');
+        const copied = document.execCommand('copy');
         document.body.removeChild(ta);
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 2000);
+        showStatus(copied ? 'Copied!' : 'Copy failed', copied);
       });
     });
   });
@@ -128,17 +145,52 @@ function initCopyButtons() {
 // ========================
 function initTabs() {
   document.querySelectorAll('.tabs').forEach(tabGroup => {
-    const buttons = tabGroup.querySelectorAll('.tab-btn');
-    const contents = tabGroup.querySelectorAll('.tab-content');
+    const tabList = tabGroup.querySelector('.tab-buttons');
+    const buttons = Array.from(tabGroup.querySelectorAll('.tab-btn'));
+    const contents = Array.from(tabGroup.querySelectorAll('.tab-content'));
+    if (!tabList || buttons.length === 0) return;
+
+    tabList.setAttribute('role', 'tablist');
+
+    function activateTab(index, moveFocus = false) {
+      buttons.forEach((button, i) => {
+        const active = i === index;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+        button.tabIndex = active ? 0 : -1;
+        contents[i].classList.toggle('active', active);
+        contents[i].hidden = !active;
+      });
+      if (moveFocus) buttons[index].focus();
+    }
 
     buttons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        if (contents[i]) contents[i].classList.add('active');
+      if (!contents[i]) return;
+      const tabId = `tab-${tabGroup.dataset.tabs || 'group'}-${i}`;
+      const panelId = contents[i].id || `${tabId}-panel`;
+      btn.id = tabId;
+      btn.setAttribute('type', 'button');
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-controls', panelId);
+      contents[i].id = panelId;
+      contents[i].setAttribute('role', 'tabpanel');
+      contents[i].setAttribute('aria-labelledby', tabId);
+
+      btn.addEventListener('click', () => activateTab(i));
+      btn.addEventListener('keydown', (e) => {
+        let next = i;
+        if (e.key === 'ArrowRight') next = (i + 1) % buttons.length;
+        else if (e.key === 'ArrowLeft') next = (i - 1 + buttons.length) % buttons.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = buttons.length - 1;
+        else return;
+        e.preventDefault();
+        activateTab(next, true);
       });
     });
+
+    const initial = Math.max(0, buttons.findIndex(button => button.classList.contains('active')));
+    activateTab(initial);
   });
 }
 
@@ -158,13 +210,30 @@ function initChecklists() {
         const text = progressEl.querySelector('.checklist-progress-text');
         if (fill) fill.style.width = (done / total * 100) + '%';
         if (text) text.textContent = `${done} / ${total} done`;
+        progressEl.setAttribute('role', 'progressbar');
+        progressEl.setAttribute('aria-valuemin', '0');
+        progressEl.setAttribute('aria-valuemax', String(total));
+        progressEl.setAttribute('aria-valuenow', String(done));
       }
     }
 
     items.forEach(item => {
-      item.addEventListener('click', () => {
+      item.tabIndex = 0;
+      item.setAttribute('role', 'checkbox');
+      item.setAttribute('aria-checked', String(item.classList.contains('done')));
+
+      function toggleItem() {
         item.classList.toggle('done');
+        item.setAttribute('aria-checked', String(item.classList.contains('done')));
         updateProgress();
+      }
+
+      item.addEventListener('click', toggleItem);
+      item.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          toggleItem();
+        }
       });
     });
 
@@ -176,9 +245,10 @@ function initChecklists() {
 // Back to Top Button
 // ========================
 function initBackToTop() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.back-to-top').forEach(btn => {
     btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   });
 }
@@ -201,6 +271,8 @@ function initPIDVisualizer() {
   const kiVal = document.getElementById('pid-ki-val');
   const kdVal = document.getElementById('pid-kd-val');
   const runBtn = document.getElementById('pid-run');
+  const status = document.getElementById('pid-status');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let animFrame = null;
 
@@ -265,7 +337,7 @@ function initPIDVisualizer() {
       ctx.stroke();
     }
 
-    // Target line — correctly placed at value 1.0
+    // Target line placed at value 1.0
     const targetY = toY(1.0);
     ctx.strokeStyle = 'rgba(245, 166, 35, 0.5)';
     ctx.lineWidth = 1;
@@ -333,6 +405,7 @@ function initPIDVisualizer() {
     ctx.fillStyle = err < 0.05 ? 'rgba(46,204,113,0.8)' : 'rgba(245,166,35,0.8)';
     ctx.font = '11px monospace';
     ctx.fillText(`Final error: ${(err * 100).toFixed(1)}%`, w - 16 - 140, 30);
+    if (status) status.textContent = `PID simulation final error: ${(err * 100).toFixed(1)} percent.`;
   }
 
   resizeCanvas();
@@ -355,6 +428,11 @@ function initPIDVisualizer() {
 
   if (runBtn) {
     runBtn.addEventListener('click', () => {
+      if (reduceMotion) {
+        draw();
+        if (status) status.textContent += ' Animation is disabled by your reduced-motion preference.';
+        return;
+      }
       if (animFrame) cancelAnimationFrame(animFrame);
       const Kp = parseFloat(kpInput.value);
       const Ki = parseFloat(kiInput.value);

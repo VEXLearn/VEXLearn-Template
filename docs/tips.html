@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tips for Coders – VEXLearn</title>
+  <meta name="description" content="Practical advice for writing VEX autonomous routines, working with a team, and avoiding burnout.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/tips.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tips for Coders - VEXLearn">
+  <meta property="og:description" content="Practical VEX programming advice based on real competition experience.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/tips.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>Tips for Coders - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
   <style>
@@ -119,7 +127,7 @@
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -133,15 +141,15 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
@@ -167,10 +175,10 @@
 
       <div class="personal-note">
         <div class="personal-note-header">
-          <span class="personal-note-icon">📖</span>
+          <span class="personal-note-icon" aria-hidden="true">&#9733;</span>
           <span class="personal-note-label">Personal Note</span>
         </div>
-        <p>Over the course of my two year journey in VEX, I dealt with many situations: a mentor who wasn't helpful, being blamed for hardware limitations, and burnout. These experiences weren't fun, and I want to share what I've learned with any coder who might be in a similar situation.</p>
+        <p>Over the course of my two-year journey in VEX, I dealt with many situations: a mentor who wasn't helpful, being blamed for hardware limitations, and burnout. These experiences weren't fun, and I want to share what I've learned with any coder who might be in a similar situation.</p>
       </div>
 
       <!-- Autonomous -->
@@ -272,7 +280,7 @@
       </div>
 
       <div class="callout info">
-        <span class="callout-icon">💡</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>If you're writing <strong>code skills</strong> (longer distances), consider switching to <a href="https://github.com/JacksonAreaRobotics/JAR-Template" target="_blank" rel="noopener"><strong>JAR Template</strong></a> or <a href="https://github.com/LemLib/LemLib" target="_blank" rel="noopener"><strong>LemLib</strong></a>: they include odometry support which is essential for skills. VEXLearn is focused on teaching and simpler tasks.</p>
         </div>
@@ -286,7 +294,7 @@
 
       <div class="personal-note">
         <div class="personal-note-header">
-          <span class="personal-note-icon">💬</span>
+          <span class="personal-note-icon" aria-hidden="true">&#9733;</span>
           <span class="personal-note-label">My Experience</span>
         </div>
         <p>My mentor encouraged our three-person team to write our own software from scratch. Looking back, this was a mistake for a small team. Writing custom code requires extensive testing, debugging, and time, which is also time you need for autonomous tuning. I wasn't told about templates until very late in my second year.</p>
@@ -295,19 +303,19 @@
       <p>The best competition-ready templates available are:</p>
       <div class="card-grid">
         <a href="https://github.com/JacksonAreaRobotics/JAR-Template" target="_blank" rel="noopener" class="card">
-          <span class="card-icon">📦</span>
+          <span class="card-icon" aria-hidden="true">&#10003;</span>
           <div class="card-title">JAR Template</div>
           <p class="card-desc">Competition-focused template with built-in PID and odometry. Great for both 15s and skills autonomous.</p>
         </a>
         <a href="https://github.com/LemLib/LemLib" target="_blank" rel="noopener" class="card">
-          <span class="card-icon">📦</span>
+          <span class="card-icon" aria-hidden="true">&#10003;</span>
           <div class="card-title">LemLib</div>
           <p class="card-desc">Feature-rich template with coordinate systems and odometry. Highly reliable for skills autonomous.</p>
         </a>
       </div>
 
       <div class="callout success">
-        <span class="callout-icon">✅</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Both templates only require you to set up your robot config and tune PID. They handle odometry and coordinate systems automatically, and are very reliable for competition use.</p>
           <p>That said, a well-written custom software has a higher performance ceiling than any template.</p>
@@ -319,7 +327,7 @@
 
       <div class="personal-note">
         <div class="personal-note-header">
-          <span class="personal-note-icon">📖</span>
+          <span class="personal-note-icon" aria-hidden="true">&#9733;</span>
           <span class="personal-note-label">Personal Story</span>
         </div>
         <p>I was part of a three-person team: one builder, one driver, and me as the sole coder. In our first year, poor coordination meant the builder often only finished the robot a week to just a few days before competition. With so little time to work on a completed robot, I often stayed up until 3 to 4 AM writing autonomous functions the night before events, alone.</p>
@@ -343,7 +351,7 @@
         <li>Photos of autonomous final positions (great for increasing page count)</li>
       </ul>
       <div class="callout info">
-        <span class="callout-icon">📒</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>In the Push Back season, this approach yielded about 150 pages of engineering notebook content for a solo programmer.</p>
         </div>
@@ -351,7 +359,7 @@
 
       <h3>Interviews</h3>
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p><strong>This template alone will not help your interview.</strong> Judges have heard about PID control thousands of times. Simply describing PID movement won't impress them, and the display screen (while nice) isn't unique.</p>
           <p>Judges want to hear something <strong>interesting and unique to you</strong>. Think about what problem you solved that nobody else did, what you learned the hard way, or what you built that surprised your teammates. That's what makes a memorable interview.</p>
@@ -365,7 +373,7 @@
         <div class="footer-nav">
           <a href="cpp.html" class="footer-nav-link next">C++ Fundamentals &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

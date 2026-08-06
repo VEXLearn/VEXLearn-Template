@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guides – VEXLearn</title>
+  <meta name="description" content="Browse VEXLearn setup, C++ fundamentals, programming tips, and VEX concepts.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/guides.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guides - VEXLearn">
+  <meta property="og:description" content="Setup, C++ fundamentals, programming tips, and VEX concepts for VEX V5 learners.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/guides.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>Guides - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
   <style>
@@ -105,7 +113,7 @@
     }
 
     .guide-card-detail li::before {
-      content: '›';
+      content: '\2713';
       position: absolute;
       left: 0;
       color: var(--accent-purple-light);
@@ -170,7 +178,7 @@
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -184,15 +192,15 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
@@ -218,10 +226,10 @@
       </div>
 
       <div class="callout info" style="margin-bottom: 36px;">
-        <span class="callout-icon">📄</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <strong>Want a more comprehensive reference?</strong><br>
-          A full PDF guide with deeper explanations, extended examples, and printable reference sheets is available on GitHub alongside the template. <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" style="color: var(--accent-purple-light); font-weight: 700;">Download it from the VEXLearn Template repository &#8594;</a>
+          VEXLearn Guide v3.2 provides deeper explanations, extended examples, and printable reference material. <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" style="color: var(--accent-purple-light); font-weight: 700;">Download the latest guide and template release &#8594;</a>
         </div>
       </div>
 
@@ -229,7 +237,7 @@
 
         <!-- Setup -->
         <a href="setup.html" class="guide-card" id="setup">
-          <span class="guide-card-icon">⚙️</span>
+          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
           <span class="guide-card-tag">Guide 01</span>
           <div class="guide-card-title">VEXLearn Template Setup</div>
           <div class="guide-audience">
@@ -260,7 +268,7 @@
 
         <!-- Tips for Coders -->
         <a href="tips.html" class="guide-card" id="tips">
-          <span class="guide-card-icon">💡</span>
+          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
           <span class="guide-card-tag">Guide 02</span>
           <div class="guide-card-title">Tips for Coders</div>
           <div class="guide-audience">
@@ -291,7 +299,7 @@
 
         <!-- C++ Fundamentals -->
         <a href="cpp.html" class="guide-card" id="cpp">
-          <span class="guide-card-icon">📐</span>
+          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
           <span class="guide-card-tag">Guide 03</span>
           <div class="guide-card-title">C++ Fundamentals</div>
           <div class="guide-audience">
@@ -325,7 +333,7 @@
 
         <!-- VEX Concepts -->
         <a href="vex-concepts.html" class="guide-card" id="vex-concepts">
-          <span class="guide-card-icon">🤖</span>
+          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
           <span class="guide-card-tag">Guide 04</span>
           <div class="guide-card-title">VEX Concepts</div>
           <div class="guide-audience">
@@ -366,7 +374,7 @@
         <div class="footer-nav">
           <a href="setup.html" class="footer-nav-link next">Setup Guide &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

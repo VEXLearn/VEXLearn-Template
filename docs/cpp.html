@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C++ Fundamentals – VEXLearn</title>
+  <meta name="description" content="Learn the C++ syntax, datatypes, control flow, functions, headers, and namespaces used by VEXLearn.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/cpp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="C++ Fundamentals - VEXLearn">
+  <meta property="og:description" content="Beginner-friendly C++ fundamentals for VEX V5 programming.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/cpp.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>C++ Fundamentals - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -22,22 +30,22 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
       </div>
       <div class="toc-title">C++ Fundamentals</div>
       <ul class="toc-list">
-        <li><a href="#datatypes">Datatypes</a></li>
+        <li><a href="#datatypes">Data Types</a></li>
         <li><a href="#syntax">Basic Syntax</a></li>
         <li class="toc-sub"><a href="#general-syntax">General Syntax</a></li>
         <li class="toc-sub"><a href="#variables">Variables</a></li>
@@ -55,22 +63,22 @@
     <main class="content">
       <div class="page-hero">
         <h1>C++ <span class="highlight">Fundamentals</span></h1>
-        <p>The C++ concepts you need to use the VEXLearn template and write VEX software: datatypes, syntax, loops, functions, header files, and namespaces.</p>
+        <p>The C++ concepts you need to use the VEXLearn template and write VEX software: data types, syntax, loops, functions, header files, and namespaces.</p>
         <div class="page-badges">
           <span class="badge badge-purple">C++</span>
           <span class="badge badge-yellow">Beginner</span>
         </div>
       </div>
 
-      <!-- Datatypes -->
-      <h2 id="datatypes">Datatypes and Purpose</h2>
-      <p>A datatype defines what kind of data a variable can hold. Here are the datatypes used in the VEXLearn template:</p>
+      <!-- Data Types -->
+      <h2 id="datatypes">Data Types and Their Purpose</h2>
+      <p>A data type defines what kind of data a variable can hold. Here are the data types used in the VEXLearn template:</p>
 
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Datatype</th>
+              <th>Data Type</th>
               <th>Purpose</th>
               <th>Examples</th>
             </tr>
@@ -103,13 +111,13 @@
             </tr>
             <tr>
               <td><code>enum</code></td>
-              <td>A custom-defined datatype</td>
+              <td>A custom-defined data type</td>
               <td>MENU, Hello123, John</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="text-muted" style="font-size:0.82rem; margin-top:-8px;">These aren't all C++ datatypes, just the ones primarily used in the template.</p>
+      <p class="text-muted" style="font-size:0.82rem; margin-top:-8px;">These aren't all C++ data types, just the ones primarily used in the template.</p>
 
       <!-- Basic Syntax -->
       <h2 id="syntax">Basic Syntax</h2>
@@ -118,7 +126,7 @@
       <p>Almost everything in C++ ends with a semicolon (<code>;</code>), just like a period ends a sentence. The exceptions are <code>for</code> loops, <code>while</code> loops, and <code>if</code>-statements, which don't need one.</p>
 
       <div class="callout info">
-        <span class="callout-icon">ℹ️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>The compiler reads your code from line 1 to the end. If you call a variable or function before it's been defined, you'll get an error. Header files help solve this problem.</p>
         </div>
@@ -177,9 +185,9 @@ greeting = "Goodbye!";</code></pre>
                 <tr><td>-</td><td>Subtracts two values</td><td>5 - 2, speed1 - speed2</td></tr>
                 <tr><td>/</td><td>Divides two values</td><td>5 / 2, speed1 / speed2</td></tr>
                 <tr><td>*</td><td>Multiplies two values</td><td>5 * 2, speed1 * speed2</td></tr>
-                <tr><td>%</td><td>Remainder after division (integers only)</td><td>5 % 2 → 1</td></tr>
-                <tr><td>++</td><td>Increases value by 1</td><td>speed1++ → speed1 + 1</td></tr>
-                <tr><td>--</td><td>Decreases value by 1</td><td>speed1-- → speed1 - 1</td></tr>
+                <tr><td>%</td><td>Remainder after division (integers only)</td><td>5 % 2 -&gt; 1</td></tr>
+                <tr><td>++</td><td>Increases value by 1</td><td>speed1++ -&gt; speed1 + 1</td></tr>
+                <tr><td>--</td><td>Decreases value by 1</td><td>speed1-- -&gt; speed1 - 1</td></tr>
               </tbody>
             </table>
           </div>
@@ -191,10 +199,10 @@ greeting = "Goodbye!";</code></pre>
               <thead><tr><th>Operator</th><th>Purpose</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td>=</td><td>Assigns a value</td><td>int dogs = 3</td></tr>
-                <tr><td>+=</td><td>Adds then assigns</td><td>x += 3 → x = x + 3</td></tr>
-                <tr><td>-=</td><td>Subtracts then assigns</td><td>x -= 3 → x = x - 3</td></tr>
-                <tr><td>/=</td><td>Divides then assigns</td><td>x /= 3 → x = x / 3</td></tr>
-                <tr><td>*=</td><td>Multiplies then assigns</td><td>x *= 3 → x = x * 3</td></tr>
+                <tr><td>+=</td><td>Adds then assigns</td><td>x += 3 -&gt; x = x + 3</td></tr>
+                <tr><td>-=</td><td>Subtracts then assigns</td><td>x -= 3 -&gt; x = x - 3</td></tr>
+                <tr><td>/=</td><td>Divides then assigns</td><td>x /= 3 -&gt; x = x / 3</td></tr>
+                <tr><td>*=</td><td>Multiplies then assigns</td><td>x *= 3 -&gt; x = x * 3</td></tr>
               </tbody>
             </table>
           </div>
@@ -205,12 +213,12 @@ greeting = "Goodbye!";</code></pre>
             <table>
               <thead><tr><th>Operator</th><th>Purpose</th><th>Examples</th></tr></thead>
               <tbody>
-                <tr><td>==</td><td>Equal to</td><td>5 == 5 → true</td></tr>
-                <tr><td>!=</td><td>Not equal to</td><td>5 != 3 → true</td></tr>
-                <tr><td>&gt;</td><td>Greater than</td><td>5 > 3 → true</td></tr>
-                <tr><td>&lt;</td><td>Less than</td><td>3 &lt; 5 → true</td></tr>
-                <tr><td>&gt;=</td><td>Greater than or equal to</td><td>5 >= 5 → true</td></tr>
-                <tr><td>&lt;=</td><td>Less than or equal to</td><td>3 &lt;= 5 → true</td></tr>
+                <tr><td>==</td><td>Equal to</td><td>5 == 5 -&gt; true</td></tr>
+                <tr><td>!=</td><td>Not equal to</td><td>5 != 3 -&gt; true</td></tr>
+                <tr><td>&gt;</td><td>Greater than</td><td>5 > 3 -&gt; true</td></tr>
+                <tr><td>&lt;</td><td>Less than</td><td>3 &lt; 5 -&gt; true</td></tr>
+                <tr><td>&gt;=</td><td>Greater than or equal to</td><td>5 >= 5 -&gt; true</td></tr>
+                <tr><td>&lt;=</td><td>Less than or equal to</td><td>3 &lt;= 5 -&gt; true</td></tr>
               </tbody>
             </table>
           </div>
@@ -221,9 +229,9 @@ greeting = "Goodbye!";</code></pre>
             <table>
               <thead><tr><th>Operator</th><th>Purpose</th><th>Examples</th></tr></thead>
               <tbody>
-                <tr><td>&amp;&amp;</td><td>True if BOTH sides are true</td><td>true &amp;&amp; true → true<br>false &amp;&amp; true → false</td></tr>
-                <tr><td>||</td><td>True if EITHER side is true</td><td>false || true → true<br>false || false → false</td></tr>
-                <tr><td>!</td><td>Inverts (NOT)</td><td>!false → true<br>!true → false</td></tr>
+                <tr><td>&amp;&amp;</td><td>True if BOTH sides are true</td><td>true &amp;&amp; true -&gt; true<br>false &amp;&amp; true -&gt; false</td></tr>
+                <tr><td>||</td><td>True if EITHER side is true</td><td>false || true -&gt; true<br>false || false -&gt; false</td></tr>
+                <tr><td>!</td><td>Inverts (NOT)</td><td>!false -&gt; true<br>!true -&gt; false</td></tr>
               </tbody>
             </table>
           </div>
@@ -297,7 +305,7 @@ if (speedNow > 6) { speedNow = 6; }</code></pre>
 int speed = (turboMode) ? 12 : 6;</code></pre>
       </div>
       <div class="callout info">
-        <span class="callout-icon">💡</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>You can always replace a ternary operator with a regular <code>if</code>-statement. Ternaries are more concise but less beginner-friendly.</p>
         </div>
@@ -336,7 +344,7 @@ void turn(double target_heading, double volt_max);</code></pre>
       </div>
 
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>Always start header files with <code>#pragma once</code>. Without it, including the same header multiple times causes "multiple definition" errors in larger projects.</p>
         </div>
@@ -392,8 +400,8 @@ void activatePiston() {
 int getSum(int a = 1, int b = 1) {
     return a + b;
 }
-// getSum()    → returns 2  (uses defaults)
-// getSum(3,4) → returns 7</code></pre>
+// getSum()    -&gt; returns 2  (uses defaults)
+// getSum(3,4) -&gt; returns 7</code></pre>
       </div>
 
       <p>Calling a function:</p>
@@ -429,7 +437,7 @@ wait(1, sec);</code></pre>
       </div>
 
       <div class="callout success">
-        <span class="callout-icon">✅</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>In VEXLearn, <code>using namespace vex;</code> is already included in the template files, so you can call VEX functions directly without the <code>vex::</code> prefix.</p>
         </div>
@@ -442,7 +450,7 @@ wait(1, sec);</code></pre>
         <div class="footer-nav">
           <a href="vex-concepts.html" class="footer-nav-link next">VEX Concepts &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

@@ -1,0 +1,7 @@
+/dist/
+*.zip
+*.pdf
+
+template/build/
+template/bin/
+template/compile_commands.json

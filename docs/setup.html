@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Setup Guide – VEXLearn</title>
+  <meta name="description" content="Install Visual Studio Code, the VEX extension, and the VEXLearn template for a VEX V5 robot.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/setup.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Setup Guide - VEXLearn">
+  <meta property="og:description" content="Set up the VEXLearn template and configure it for your VEX V5 robot.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/setup.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>Setup Guide - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -22,15 +30,15 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
@@ -80,7 +88,7 @@
       </ol>
 
       <div class="callout info">
-        <span class="callout-icon">ℹ️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p>You can also use other editors like Antigravity, but VS Code is the most widely tested with the VEX extension.</p>
         </div>
@@ -105,7 +113,7 @@
       </ol>
 
       <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
         <div class="callout-content">
           <p><strong>PROS is not supported.</strong> VEXLearn only works with the official VEX VS Code extension and V5 platform (not IQ or EXP).</p>
         </div>
@@ -126,7 +134,7 @@
         <li>
           Open VS Code, go to <strong>File &rarr; Open Folder</strong>, and open the extracted folder.
           <div class="callout danger" style="margin-top:12px;">
-            <span class="callout-icon">🚨</span>
+            <span class="callout-icon" aria-hidden="true">&#9432;</span>
             <div class="callout-content">
               <p>The folder you open <strong>must be named <code>VEXLearn Template</code></strong>. When you extract the ZIP, a parent folder may be created with <code>VEXLearn Template</code> inside it. Open the inner folder. If you open the outer parent folder, the VEX extension will not recognize the template.</p>
             </div>
@@ -135,7 +143,7 @@
         <li>
           Let VS Code install the required dependencies automatically.
           <div class="callout warning" style="margin-top:12px;">
-            <span class="callout-icon">⚠️</span>
+            <span class="callout-icon" aria-hidden="true">&#9432;</span>
             <div class="callout-content">
               <p>If a popup asks <em>"Do you want to install Microsoft's Makefile tools?"</em>, click <strong>No</strong>. Installing it will break the template.</p>
             </div>
@@ -150,12 +158,12 @@
       <div class="tabs">
         <div class="tab-buttons">
           <button class="tab-btn active">For Learning Software Only</button>
-          <button class="tab-btn">For Use on a Robot</button>
+          <button class="tab-btn" id="for-use">For Use on a Robot</button>
         </div>
 
         <div class="tab-content active" id="tab-learning">
           <div class="callout success">
-            <span class="callout-icon">✅</span>
+            <span class="callout-icon" aria-hidden="true">&#9432;</span>
             <div class="callout-content">
               <p>If you just want to explore how the code works and learn from it, <strong>no extra setup is needed</strong> beyond installing the template. You're done!</p>
             </div>
@@ -236,7 +244,7 @@
             </li>
             <li>
               <div class="check-box"></div>
-              <span class="check-text">Compile the project, no errors (warnings are fine)</span>
+              <span class="check-text">Compile the project and confirm that it has no errors (warnings are acceptable)</span>
             </li>
             <li>
               <div class="check-box"></div>
@@ -253,7 +261,7 @@
           </ul>
 
           <div class="callout info" style="margin-top:20px;">
-            <span class="callout-icon">💡</span>
+            <span class="callout-icon" aria-hidden="true">&#9432;</span>
             <div class="callout-content">
               <p>When you're done with setup, start tuning PID for <code>move()</code> and <code>turn()</code> in <code>movement.cpp</code>. See the <a href="vex-concepts.html#pid">VEX Concepts &rarr; PID</a> section for tuning guidance.</p>
             </div>
@@ -268,7 +276,7 @@
         <div class="footer-nav">
           <a href="tips.html" class="footer-nav-link next">Tips for Coders &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

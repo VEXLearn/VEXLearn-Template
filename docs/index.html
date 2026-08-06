@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VEXLearn Guide</title>
+  <meta name="description" content="Learn VEX V5 C++ with a documented teaching template, setup instructions, coding fundamentals, and PID guidance.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VEXLearn">
+  <meta property="og:title" content="VEXLearn - Learn VEX V5 C++">
+  <meta property="og:description" content="A beginner-focused VEX V5 C++ template and learning guide.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>VEXLearn - Learn VEX V5 C++</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
   <style>
@@ -200,7 +209,7 @@
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <header>
     <nav class="nav-inner">
@@ -214,15 +223,15 @@
         <li><a href="cpp.html">C++ Fundamentals</a></li>
         <li><a href="vex-concepts.html">VEX Concepts</a></li>
       </ul>
-      <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" aria-label="Menu">
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="guide-sidebar">
       <div class="sidebar-logo-wrap">
         <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
         <a href="index.html" class="sidebar-main-menu">Main Menu</a>
@@ -237,7 +246,7 @@
     </aside>
 
     <main class="content">
-      <div class="hero">
+      <div class="hero" id="overview">
         <div class="hero-eyebrow">Template for Learning</div>
         <h1><span class="vex">VEX</span><span class="learn">LEARN</span><br>Guide</h1>
         <p class="hero-desc">
@@ -245,7 +254,7 @@
           VEX robotics concepts, PID control, and tips from a two-year VEX competitor.
         </p>
         <div class="hero-buttons">
-          <a href="https://github.com/noobieisgod/VEXLearn-Template" target="_blank" rel="noopener" class="btn-primary">Download Template &#8594;</a>
+          <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="btn-primary">Download Latest Release &#8594;</a>
           <a href="guides.html" class="btn-secondary">Guides</a>
         </div>
       </div>
@@ -255,7 +264,7 @@
         <div class="nav-card-grid">
           <a href="setup.html" class="nav-card">
             <div class="nav-card-number">01</div>
-            <span class="nav-card-icon">⚙️</span>
+            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
             <div class="nav-card-title">Setup Guide</div>
             <p class="nav-card-desc">Install VS Code, the VEX extension, and configure the VEXLearn template for your robot.</p>
             <div class="nav-card-topics">
@@ -267,7 +276,7 @@
 
           <a href="tips.html" class="nav-card">
             <div class="nav-card-number">02</div>
-            <span class="nav-card-icon">💡</span>
+            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
             <div class="nav-card-title">Tips for Coders</div>
             <p class="nav-card-desc">Real-world advice on autonomous functions, templates, burnout, and engineering notebooks.</p>
             <div class="nav-card-topics">
@@ -279,7 +288,7 @@
 
           <a href="cpp.html" class="nav-card">
             <div class="nav-card-number">03</div>
-            <span class="nav-card-icon">📐</span>
+            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
             <div class="nav-card-title">C++ Fundamentals</div>
             <p class="nav-card-desc">Data types, variables, operators, loops, functions, header files, and namespaces.</p>
             <div class="nav-card-topics">
@@ -292,9 +301,9 @@
 
           <a href="vex-concepts.html" class="nav-card">
             <div class="nav-card-number">04</div>
-            <span class="nav-card-icon">🤖</span>
+            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
             <div class="nav-card-title">VEX Concepts</div>
-            <p class="nav-card-desc">Ports, motors, PID control, threads, gear ratios, volt vs RPM control, and inertial heading.</p>
+            <p class="nav-card-desc">Ports, motors, PID control, threads, gear ratios, voltage control, and inertial heading.</p>
             <div class="nav-card-topics">
               <span class="topic-tag">PID</span>
               <span class="topic-tag">Threads</span>
@@ -355,7 +364,7 @@
         <div class="page-badges" style="margin-top:16px;">
           <span class="badge badge-purple">VEX V5</span>
           <span class="badge badge-yellow">C++</span>
-          <span class="badge badge-green">Open Beta v0.8.1</span>
+          <span class="badge badge-green">v1.0.0 Release Candidate</span>
         </div>
       </div>
 
@@ -364,7 +373,7 @@
         <div class="footer-nav">
           <a href="setup.html" class="footer-nav-link next">Setup Guide &#8594;</a>
         </div>
-        <button class="back-to-top">&#8593; Top</button>
+        <button class="back-to-top" type="button">&#8593; Top</button>
       </div>
     </main>
   </div>

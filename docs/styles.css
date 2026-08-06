@@ -1,5 +1,5 @@
 /* ============================================================
-   VEXLearn Guide — Enhanced Stylesheet
+   VEXLearn Guide - Enhanced Stylesheet
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -82,7 +82,7 @@ body {
 }
 
 /* ============================================================
-   Header / Nav — Glassmorphism
+   Header / Nav - Glassmorphism
    ============================================================ */
 header {
   position: fixed;
@@ -854,7 +854,7 @@ tbody td:first-child {
   box-shadow: 0 0 8px rgba(34,197,94,0.4);
 }
 
-.checklist li.done .check-box::after { content: '✓'; }
+.checklist li.done .check-box::after { content: '\2713'; }
 
 .check-text { flex: 1; font-size: 0.9rem; line-height: 1.55; }
 
@@ -1109,7 +1109,7 @@ tbody td:first-child {
 }
 
 /* ============================================================
-   Specific Page Styles — Index (Home)
+   Specific Page Styles - Index (Home)
    ============================================================ */
 .hero {
   padding: 68px 0 60px;
@@ -1697,4 +1697,25 @@ tbody td:first-child {
   border: 1px solid var(--border-solid);
   margin: 14px 0 4px;
   box-shadow: var(--shadow-sm);
+}
+/* Screen-reader-only text remains available to assistive technology. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

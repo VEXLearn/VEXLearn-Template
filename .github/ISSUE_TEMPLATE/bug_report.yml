@@ -1,0 +1,49 @@
+name: Bug report
+description: Report incorrect template or website behavior.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve VEXLearn.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Explain what happened and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open...
+        2. Run...
+        3. Observe...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: VEXLearn version
+      placeholder: v0.8.2
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected area
+      options:
+        - Template code
+        - Website
+        - Guide
+        - Release package
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include relevant logs, screenshots, robot configuration, or hardware observations.

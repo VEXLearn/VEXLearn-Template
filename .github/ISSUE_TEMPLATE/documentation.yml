@@ -1,0 +1,30 @@
+name: Documentation problem
+description: Report unclear, incorrect, or inconsistent documentation.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Documentation location
+      options:
+        - Source comments
+        - Website
+        - PDF guide
+        - README
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Page, section, or file
+      placeholder: movement.cpp introduction or Guide page 12
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should be corrected?
+    validations:
+      required: true
