@@ -1,6 +1,8 @@
 /dist/
 *.zip
 *.pdf
+!docs/curriculum/
+!docs/curriculum/*.pdf
 
 template/build/
 template/bin/

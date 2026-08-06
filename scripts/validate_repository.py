@@ -19,6 +19,18 @@ GUIDE_VERSION = "3.2"
 TEMPLATE_ASSET = f"VEXLearn.Template.V{VERSION}.zip"
 GUIDE_ASSET = f"VEXLearn.Guide.V{GUIDE_VERSION}.pdf"
 PUBLIC_MOVEMENT_APIS = {"move", "turn"}
+CURRICULUM_FILES = {
+    "pre-assessment.pdf",
+    "post-assessment.pdf",
+    "module-1-debugging-exercise.pdf",
+    "module-2-project-map.pdf",
+    "module-3-configuration-planner.pdf",
+    "module-4-route-planner.pdf",
+    "module-5-pid-lab.pdf",
+    "module-6-reliability-log.pdf",
+    "capstone-rubric.pdf",
+    "instructor-guide.pdf",
+}
 
 REQUIRED_TEMPLATE_FILES = {
     ".gitignore",
@@ -164,6 +176,21 @@ def validate_html(errors: list[str]) -> None:
         if value.startswith(("data:", "http://", "https://")):
             continue
         require((DOCS / value).exists(), f"Broken CSS asset: {value}", errors)
+
+    curriculum = DOCS / "curriculum.html"
+    require(curriculum in pages, "Curriculum page is missing", errors)
+    if curriculum in pages:
+        source = curriculum.read_text(encoding="utf-8")
+        require('data-storage-key="vexlearn-foundations-progress-v1"' in source, "Curriculum progress storage is missing", errors)
+        expected_ids = {f"module-{number}" for number in range(7)} | {"capstone"}
+        check_ids = set(re.findall(r'data-check-id="([^"]+)"', source))
+        require(check_ids == expected_ids, f"Unexpected curriculum progress IDs: {sorted(check_ids)}", errors)
+
+    curriculum_files = DOCS / "curriculum"
+    missing_files = sorted(name for name in CURRICULUM_FILES if not (curriculum_files / name).is_file())
+    require(not missing_files, f"Missing curriculum PDFs: {', '.join(missing_files)}", errors)
+    empty_files = sorted(name for name in CURRICULUM_FILES if (curriculum_files / name).is_file() and (curriculum_files / name).stat().st_size == 0)
+    require(not empty_files, f"Empty curriculum PDFs: {', '.join(empty_files)}", errors)
 
 
 def validate_versions_and_apis(errors: list[str]) -> None:

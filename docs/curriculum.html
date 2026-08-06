@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VEXLearn Foundations is an eight-module beginner curriculum for learning VEX V5 C++, driver control, PID movement, autonomous programming, and reliability testing.">
+  <link rel="canonical" href="https://vexlearn.github.io/VEXLearn-Template/curriculum.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VEXLearn Foundations Curriculum">
+  <meta property="og:description" content="Progress from first C++ code to a documented and reliable VEX V5 autonomous routine.">
+  <meta property="og:url" content="https://vexlearn.github.io/VEXLearn-Template/curriculum.html">
+  <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
+  <title>Foundations Curriculum - VEXLearn</title>
+  <link rel="icon" href="images/vexlearn-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="setup.html">Setup</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="cpp.html">C++ Fundamentals</a></li>
+        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+      </ul>
+      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
+      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="guide-sidebar">
+      <div class="sidebar-logo-wrap">
+        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
+        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
+      </div>
+      <div class="toc-title">Foundations Curriculum</div>
+      <ul class="toc-list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#pathways">Pathways</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><a href="#module-0">Module 0: Orientation</a></li>
+        <li><a href="#module-1">Module 1: C++</a></li>
+        <li><a href="#module-2">Module 2: Project</a></li>
+        <li><a href="#module-3">Module 3: Driver Control</a></li>
+        <li><a href="#module-4">Module 4: Autonomous</a></li>
+        <li><a href="#module-5">Module 5: PID</a></li>
+        <li><a href="#module-6">Module 6: Reliability</a></li>
+        <li><a href="#module-7">Module 7: Capstone</a></li>
+        <li><a href="#assessment">Assessment</a></li>
+        <li><a href="#instructors">For Instructors</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div class="page-hero" id="overview">
+        <h1>VEXLearn <span class="highlight">Foundations</span></h1>
+        <p>From First Code to Reliable Autonomous</p>
+        <div class="page-badges">
+          <span class="badge badge-yellow">Pilot Version</span>
+          <span class="badge badge-purple">Eight Modules</span>
+          <span class="badge badge-green">10-14 Hours</span>
+        </div>
+      </div>
+
+      <p>VEXLearn Foundations is a beginner curriculum for learning VEX V5 programming through documented, editable robot code. Students progress from basic C++ and robot configuration to driver control, PID movement, autonomous programming, and reliability testing.</p>
+      <p>The curriculum can be completed as a code-reading pathway without a robot or as a complete hardware pathway using a compatible tank-drive VEX V5 robot.</p>
+
+      <h2>Intended Audience</h2>
+      <ul>
+        <li>Students with little or no previous C++ experience</li>
+        <li>New VEX programmers</li>
+        <li>Teams transitioning from block coding to text-based programming</li>
+        <li>Mentors teaching beginner VEX V5 software</li>
+        <li>Students who want to understand robot code before moving to more advanced frameworks</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon" aria-hidden="true">&#9432;</span>
+        <div class="callout-content">
+          <strong>Recommended duration</strong>
+          <p>Complete the eight modules over approximately 10-14 hours. A school club could complete one module per meeting. Modules 5 through 7 may require multiple meetings because physical tuning and autonomous testing take time.</p>
+        </div>
+      </div>
+
+      <h2 id="pathways">Two Completion Pathways</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title">Code Learning Path</div>
+          <p class="card-desc">No physical robot is required. Students read, trace, modify, and explain the VEXLearn source code. They complete Modules 0-4, code-reading versions of Modules 5-7, and a written capstone design.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Robot Programming Path</div>
+          <p class="card-desc">Students complete every module, physical testing, and the autonomous capstone using a compatible tank-drive VEX V5 robot, separate left and right motor groups, a V5 inertial sensor, the official VEX VS Code extension, and a safe testing area.</p>
+        </div>
+      </div>
+
+      <h2 id="progress">Course Progress</h2>
+      <p>Mark each module complete as you work. Progress is stored only in this browser on this device.</p>
+      <div class="checklist-progress">
+        <div class="checklist-progress-bar">
+          <div class="checklist-progress-fill" style="width:0%"></div>
+        </div>
+        <div class="checklist-progress-text">0 / 8 done</div>
+      </div>
+      <ul class="checklist" data-storage-key="vexlearn-foundations-progress-v1">
+        <li data-check-id="module-0"><div class="check-box"></div><span class="check-text">Module 0 complete</span></li>
+        <li data-check-id="module-1"><div class="check-box"></div><span class="check-text">Module 1 complete</span></li>
+        <li data-check-id="module-2"><div class="check-box"></div><span class="check-text">Module 2 complete</span></li>
+        <li data-check-id="module-3"><div class="check-box"></div><span class="check-text">Module 3 complete</span></li>
+        <li data-check-id="module-4"><div class="check-box"></div><span class="check-text">Module 4 complete</span></li>
+        <li data-check-id="module-5"><div class="check-box"></div><span class="check-text">Module 5 complete</span></li>
+        <li data-check-id="module-6"><div class="check-box"></div><span class="check-text">Module 6 complete</span></li>
+        <li data-check-id="capstone"><div class="check-box"></div><span class="check-text">Capstone complete</span></li>
+      </ul>
+
+      <section class="curriculum-module">
+        <h2 id="module-0">Module 0: Orientation and Baseline</h2>
+        <div class="module-meta"><span class="badge badge-purple">30-60 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p>Learn what VEXLearn is designed to teach, understand its limitations, locate the major source files, choose a pathway, and complete a baseline assessment.</p>
+
+        <h3>Required Reading</h3>
+        <ul>
+          <li><a href="index.html">VEXLearn homepage</a></li>
+          <li><a href="https://github.com/VEXLearn/VEXLearn-Template#requirements" target="_blank" rel="noopener">Requirements</a></li>
+          <li><a href="setup.html">Setup Guide</a></li>
+          <li><a href="setup.html#learning-only">Learning Only vs. For Use</a></li>
+        </ul>
+
+        <h3>Activities</h3>
+        <ol>
+          <li>Download the latest release.</li>
+          <li>Open the correct inner project folder in VS Code.</li>
+          <li>Locate <code>main.cpp</code>, <code>robotConfig.cpp</code>, <code>drive.cpp</code>, <code>movement.cpp</code>, <code>auto.cpp</code>, and <code>display.cpp</code>.</li>
+          <li>Complete the pre-course assessment.</li>
+          <li>Write one sentence describing the purpose of each source file.</li>
+        </ol>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit a completed setup checklist, baseline score, six-file project map, and selected pathway. Pass by correctly matching at least five of the six major source files with their purpose.</p>
+        <a class="worksheet-link" href="curriculum/pre-assessment.pdf" download>Download pre-course assessment</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-1">Module 1: C++ Fundamentals for VEX</h2>
+        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p>Identify common data types, declare and update variables, use operators, read control structures, explain function signatures, and distinguish declarations from definitions.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="cpp.html#datatypes">Data Types</a>, <a href="cpp.html#variables">Variables</a>, <a href="cpp.html#operators">Operators</a>, <a href="cpp.html#loops">Loops and If-Statements</a>, <a href="cpp.html#functions">Functions</a>, <a href="cpp.html#headers">Header Files</a>, <a href="cpp.html#include">File Integration</a>, and <a href="cpp.html#namespaces">Namespaces</a>.</p>
+
+        <h3>Activity 1: Predict the Result</h3>
+        <p>Predict the final value before running or checking this code:</p>
+        <div class="code-block"><pre><code class="language-cpp">int speed = 5;
+speed += 2;
+
+if (speed &gt; 6) {
+    speed = 6;
+}</code></pre></div>
+
+        <h3>Activity 2: Repair the Code</h3>
+        <p>Correct at least five errors involving missing semicolons, incorrect variable types, assignment versus comparison, misspelled function names, and missing header declarations.</p>
+
+        <h3>Activity 3: Write a Function</h3>
+        <div class="code-block"><pre><code class="language-cpp">double limitVoltage(double requestedVoltage, double maximumVoltage);</code></pre></div>
+        <p>The function must return a value that does not exceed the positive or negative maximum.</p>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit the corrected exercise, completed function, a short explanation of declaration versus definition, and the module quiz. Score at least 75% on the quiz.</p>
+        <a class="worksheet-link" href="curriculum/module-1-debugging-exercise.pdf" download>Download debugging exercise</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-2">Module 2: Understanding the VEXLearn Project</h2>
+        <div class="module-meta"><span class="badge badge-purple">60-90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p>Trace functions across source and header files, explain the role of <code>main.cpp</code>, connect VEX objects to physical hardware, and identify Smart Ports and three-wire ports.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="cpp.html#structure">Program Structure</a>, <a href="cpp.html#headers">Header Files</a>, <a href="vex-concepts.html#oop">Object-Oriented Programming and VEX Objects</a>, <a href="vex-concepts.html#ports">How Ports Work</a>, <a href="vex-concepts.html#connecting">Connecting to the Brain</a>, and <a href="vex-concepts.html#downloading">Downloading Software</a>.</p>
+
+        <h3>Activity 1: Trace a Function</h3>
+        <p>Trace <code>move()</code> from <code>movement.h</code> to <code>movement.cpp</code> and then to a call in <code>auto.cpp</code>. Identify where it is declared, defined, and called, and explain each argument.</p>
+
+        <h3>Activity 2: Hardware Map</h3>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Hardware</th><th>Software object</th><th>Port</th><th>Reversed?</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td>Left front motor</td><td><code>LeftFront</code></td><td>1</td><td>No</td><td>Chassis</td></tr>
+              <tr><td>Inertial sensor</td><td><code>Inertial</code></td><td>6</td><td>N/A</td><td>Heading</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Students without a robot use the default template configuration.</p>
+
+        <h3>Activity 3: Explain an Object</h3>
+        <p>Explain why <code>Inertial.heading();</code> uses both an object and a function.</p>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit the function-tracing worksheet, hardware/software map, and annotated project diagram. Correctly explain the relationship among <code>robotConfig.cpp</code>, <code>robotConfig.h</code>, and the other source files.</p>
+        <a class="worksheet-link" href="curriculum/module-2-project-map.pdf" download>Download project map</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-3">Module 3: Robot Configuration and Driver Control</h2>
+        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p>Configure motors and sensors, modify motor groups and driver behavior, change controller mappings, and use a Boolean variable to toggle a mechanism.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="setup.html#setup-checklist">Robot Setup Checklist</a>, <a href="vex-concepts.html#ports">How Ports Work</a>, <a href="vex-concepts.html#gear-ratio">Gear Ratio and Software</a>, <a href="vex-concepts.html#motors">6-Watt versus 12-Watt Motors</a>, <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/robotConfig.cpp" target="_blank" rel="noopener"><code>robotConfig.cpp</code></a>, and <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/drive.cpp" target="_blank" rel="noopener"><code>drive.cpp</code></a>.</p>
+
+        <h3>Activity 1: Configure the Robot</h3>
+        <p>Hardware-path students update motor ports, directions, groups, sensor and piston ports, wheel diameter, and external gear ratio. Code-learning students create a hypothetical six-motor tank-drive configuration.</p>
+
+        <h3>Activity 2: Change Driver Preferences</h3>
+        <p>Modify at least two of the following: deadband, controller sensitivity, coast-to-brake timing, button mapping, or mechanism speed.</p>
+
+        <h3>Activity 3: Add a Mechanism Toggle</h3>
+        <p>Implement or modify a Boolean-based controller toggle for a piston or another mechanism.</p>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit a configuration commit or saved code copy, explain two modifications, and record the compilation result and hardware demonstration when available. The program must compile, or the student must correctly identify and explain the remaining compilation problem.</p>
+        <a class="worksheet-link" href="curriculum/module-3-configuration-planner.pdf" download>Download configuration planner</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-4">Module 4: Autonomous Movement</h2>
+        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p>Explain <code>auto.cpp</code>, use <code>move()</code> and <code>turn()</code>, understand their arguments, plan routes, and recognize when an advanced odometry-based template is more appropriate.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="vex-concepts.html#heading">Absolute Heading</a>, <a href="vex-concepts.html#volt-vs-rpm">Voltage versus RPM Control</a>, <a href="tips.html#autonomous">Writing Autonomous Functions</a>, <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/movement.cpp" target="_blank" rel="noopener"><code>movement.cpp</code></a>, and <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/auto.cpp" target="_blank" rel="noopener"><code>auto.cpp</code></a>.</p>
+
+        <h3>Activity 1: Read Movement Calls</h3>
+        <div class="code-block"><pre><code class="language-cpp">move(100, 0, 8);
+turn(90, 6);
+move(50, 90, 6);</code></pre></div>
+        <p>Explain the expected behavior of each line, including distance, heading, and voltage.</p>
+
+        <h3>Activity 2: Plan a Route</h3>
+        <p>Draw a route with a starting position, distances, headings, mechanism actions, and expected ending position.</p>
+
+        <h3>Activity 3: Write a Three-Step Routine</h3>
+        <p>Include at least one <code>move()</code>, at least one <code>turn()</code>, and at least one additional movement or mechanism action.</p>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit the route diagram, autonomous source code, and an explanation of every movement argument, followed by a code review or physical demonstration. Explain what the robot should do without running the program.</p>
+        <a class="worksheet-link" href="curriculum/module-4-route-planner.pdf" download>Download route planner</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-5">Module 5: PID Tuning Laboratory</h2>
+        <div class="module-meta"><span class="badge badge-purple">2-3 hours</span><span class="badge badge-yellow">Hardware testing recommended</span></div>
+        <p>Explain proportional, integral, and derivative control; identify windup, overshoot, oscillation, and steady-state error; and select tuning values using controlled evidence.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="vex-concepts.html#pid">PID Controller</a>, <a href="vex-concepts.html#integral-windup">Integral Windup</a>, <a href="vex-concepts.html#pid-visualizer">Interactive PID Demo</a>, <a href="vex-concepts.html#volt-vs-rpm">Voltage versus RPM Control</a>, and the PID sections in <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/movement.cpp" target="_blank" rel="noopener"><code>movement.cpp</code></a>.</p>
+
+        <h3>Laboratory Rules</h3>
+        <ul>
+          <li>Use the same starting position, target distance, and maximum voltage.</li>
+          <li>Change only one PID value at a time.</li>
+          <li>Record battery percentage for every trial.</li>
+          <li>Use a physical starting aligner and record trials on video when possible.</li>
+        </ul>
+
+        <h3>Activities</h3>
+        <ol>
+          <li>Adjust <code>Kp</code> and record response speed, overshoot, final error, and oscillation.</li>
+          <li>Adjust <code>Kd</code> and observe changes in oscillation and overshoot.</li>
+          <li>Explain integral accumulation, voltage saturation, and why accumulated error resets after crossing the target.</li>
+          <li>Justify final constants using at least three recorded trials.</li>
+        </ol>
+
+        <h3>Required Trial Data</h3>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Trial</th><th>Kp</th><th>Ki</th><th>Kd</th><th>Target</th><th>Final error</th><th>Overshoot</th><th>Oscillation</th><th>Battery</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit at least eight documented trials, final constants, a before-and-after comparison, and a paragraph explaining the decision. Each team defines its tolerance before testing. A suggested standard is at least eight of ten trials within that distance or heading tolerance.</p>
+        <a class="worksheet-link" href="curriculum/module-5-pid-lab.pdf" download>Download PID laboratory log</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-6">Module 6: Reliability, Debugging, and Testing</h2>
+        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-yellow">Hardware testing recommended</span></div>
+        <p>Separate software from hardware failures, use repeated trials, record failure conditions, evaluate environmental factors, and revise code using testing evidence.</p>
+
+        <h3>Required Reading</h3>
+        <p><a href="tips.html#autonomous">Writing Autonomous Functions</a> and the stopping and timeout behavior in <a href="https://github.com/VEXLearn/VEXLearn-Template/blob/main/template/src/movement.cpp" target="_blank" rel="noopener"><code>movement.cpp</code></a>.</p>
+
+        <h3>Activities</h3>
+        <ol>
+          <li>Classify failures as configuration, compilation, control logic, sensor, mechanical, starting-position, battery or power, or unknown.</li>
+          <li>Run the same autonomous routine ten times and record success, ending error, battery, failure category, and notes.</li>
+          <li>Identify the most frequent failure, make one change, and complete five more trials.</li>
+        </ol>
+
+        <h3>Evidence and Checkpoint</h3>
+        <p>Submit the ten-run baseline, one documented revision, five-run retest, before-and-after success rate, and a short failure analysis. Explain why one successful run does not prove an autonomous routine is reliable.</p>
+        <a class="worksheet-link" href="curriculum/module-6-reliability-log.pdf" download>Download reliability log</a>
+      </section>
+
+      <section class="curriculum-module">
+        <h2 id="module-7">Module 7: Final Autonomous Capstone</h2>
+        <div class="module-meta"><span class="badge badge-purple">2-4 hours</span><span class="badge badge-yellow">Final project</span></div>
+        <div class="callout success">
+          <span class="callout-icon" aria-hidden="true">&#10003;</span>
+          <div class="callout-content"><strong>Challenge</strong><p>Design, program, test, and explain a short autonomous routine using the VEXLearn template.</p></div>
+        </div>
+
+        <h3>Minimum Requirements</h3>
+        <ul>
+          <li>At least three movement commands and one turn</li>
+          <li>At least one mechanism action when hardware permits</li>
+          <li>A planned starting position and route diagram</li>
+          <li>A safe timeout or bounded movement behavior</li>
+          <li>At least ten documented physical trials for the Robot Programming Path</li>
+        </ul>
+        <p>The Code Learning Path submits the complete route, code, predicted behavior, and testing plan without physical trial results.</p>
+
+        <h3>Required Submission</h3>
+        <ol>
+          <li>Route diagram</li>
+          <li>Source code</li>
+          <li>Hardware configuration</li>
+          <li>PID values</li>
+          <li>Trial log</li>
+          <li>Short demonstration video</li>
+          <li>Failure analysis</li>
+          <li>Final reflection</li>
+        </ol>
+
+        <h3>Reflection Questions</h3>
+        <ul>
+          <li>What part of the routine was least reliable?</li>
+          <li>Which change produced the largest improvement?</li>
+          <li>What evidence supports your final PID values?</li>
+          <li>What hardware behavior affected the software?</li>
+          <li>What would you change with another week?</li>
+          <li>When would a more advanced framework such as JAR Template or LemLib become appropriate?</li>
+        </ul>
+        <a class="worksheet-link" href="curriculum/capstone-rubric.pdf" download>Download capstone rubric</a>
+      </section>
+
+      <h2 id="assessment">Capstone Rubric</h2>
+      <div class="table-container">
+        <table>
+          <thead><tr><th>Category</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>Correct project and hardware configuration</td><td>15</td></tr>
+            <tr><td>Understanding of C++ and project structure</td><td>15</td></tr>
+            <tr><td>Driver-control or mechanism modification</td><td>10</td></tr>
+            <tr><td>Autonomous planning and implementation</td><td>20</td></tr>
+            <tr><td>PID tuning process</td><td>15</td></tr>
+            <tr><td>Reliability testing and evidence</td><td>15</td></tr>
+            <tr><td>Explanation, documentation, and reflection</td><td>10</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>100</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Performance Levels</h3>
+      <ul>
+        <li><strong>90-100: Independent.</strong> The student can configure, program, test, explain, and improve the system with little assistance.</li>
+        <li><strong>75-89: Proficient.</strong> The student completes major tasks but needs occasional guidance while debugging or tuning.</li>
+        <li><strong>60-74: Developing.</strong> The student understands basic concepts but needs substantial support with configuration, debugging, or autonomous testing.</li>
+        <li><strong>Below 60: Incomplete.</strong> The student should revisit modules connected to missing or incorrect capstone elements.</li>
+      </ul>
+
+      <h2>Pre-Course and Post-Course Assessment</h2>
+      <p>Use the same concepts before and after the curriculum, but change numerical values and code examples so the post-test does not reward memorizing answers.</p>
+      <ol>
+        <li>What is the difference between <code>int</code>, <code>double</code>, and <code>bool</code>?</li>
+        <li>What does <code>==</code> mean, and how is it different from <code>=</code>?</li>
+        <li>What does a <code>while</code> loop do?</li>
+        <li>What is the purpose of a header file?</li>
+        <li>Where are VEX motors and sensors configured?</li>
+        <li>What does the <code>heading</code> argument in <code>move()</code> control?</li>
+        <li>Why must the software gear ratio match the physical drivetrain?</li>
+        <li>What does the proportional term of PID respond to?</li>
+        <li>What is integral windup?</li>
+        <li>Why should an autonomous routine be tested multiple times?</li>
+        <li>Name two non-software factors that can change autonomous performance.</li>
+        <li>When should a team consider moving from VEXLearn to an odometry-based template?</li>
+      </ol>
+      <p>Questions 1-6 are worth one point each. Questions 7-12 are worth two points each, for 18 points total. Record initial and final scores, percentage-point improvement, module completion, capstone score, autonomous trial success rate, and student confidence before and after.</p>
+      <p><a class="worksheet-link" href="curriculum/post-assessment.pdf" download>Download post-course assessment</a></p>
+
+      <h2 id="instructors">Instructor Guidance</h2>
+      <div class="callout warning">
+        <span class="callout-icon" aria-hidden="true">!</span>
+        <div class="callout-content">
+          <p>VEXLearn is designed to help students understand beginner VEX V5 software. Instructors should ask students to explain code before copying or modifying it. Physical movement activities must be conducted in a clear testing area with the robot raised or restrained during initial mechanism tests.</p>
+          <p>The curriculum prioritizes understanding, testing, and documentation over achieving one universal performance threshold. Different robots require different PID values and tolerances.</p>
+        </div>
+      </div>
+      <p><a class="worksheet-link" href="curriculum/instructor-guide.pdf" download>Download instructor guide</a></p>
+
+      <h3>Publication Status</h3>
+      <p><strong>VEXLearn Foundations Curriculum - Pilot Version</strong></p>
+      <p>After testing the curriculum with students, publish the number who began and completed it, pre/post assessment changes, capstone completion, common difficulties, and revisions made from feedback. Do not claim educational effectiveness until these results have been collected.</p>
+
+      <div class="page-footer">
+        <div class="footer-nav"><a href="index.html" class="footer-nav-link">&#8592; Home</a></div>
+        <div class="footer-nav"><a href="setup.html" class="footer-nav-link next">Setup Guide &#8594;</a></div>
+        <button class="back-to-top" type="button">&#8593; Top</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -201,6 +201,16 @@ function initChecklists() {
   document.querySelectorAll('.checklist').forEach(list => {
     const items = list.querySelectorAll('li');
     const progressEl = list.previousElementSibling;
+    const storageKey = list.dataset.storageKey;
+
+    if (storageKey) {
+      try {
+        const completed = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        items.forEach(item => item.classList.toggle('done', completed.includes(item.dataset.checkId)));
+      } catch (error) {
+        // Progress still works for this visit when browser storage is unavailable or invalid.
+      }
+    }
 
     function updateProgress() {
       const done = list.querySelectorAll('li.done').length;
@@ -225,6 +235,16 @@ function initChecklists() {
       function toggleItem() {
         item.classList.toggle('done');
         item.setAttribute('aria-checked', String(item.classList.contains('done')));
+        if (storageKey) {
+          try {
+            const completed = [...items]
+              .filter(checkItem => checkItem.classList.contains('done'))
+              .map(checkItem => checkItem.dataset.checkId);
+            localStorage.setItem(storageKey, JSON.stringify(completed));
+          } catch (error) {
+            // A blocked or full storage area must not disable the checklist.
+          }
+        }
         updateProgress();
       }
 
