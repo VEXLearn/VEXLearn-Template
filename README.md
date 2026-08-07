@@ -10,6 +10,9 @@
     <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest"><img src="https://img.shields.io/github/v/release/VEXLearn/VEXLearn-Template" alt="Latest release"></a>
     <a href="https://github.com/VEXLearn/VEXLearn-Template/actions/workflows/validate.yml"><img src="https://github.com/VEXLearn/VEXLearn-Template/actions/workflows/validate.yml/badge.svg" alt="Repository validation"></a>
     <a href="LICENSE"><img src="https://img.shields.io/github/license/VEXLearn/VEXLearn-Template" alt="MIT License"></a>
+    <a href="https://github.com/VEXLearn/VEXLearn-Template/releases">
+  <img src="https://img.shields.io/github/downloads/VEXLearn/VEXLearn-Template/total?label=release%20downloads" alt="Release downloads">
+</a>
   </p>
 </div>
 
