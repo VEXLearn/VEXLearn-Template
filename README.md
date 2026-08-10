@@ -22,6 +22,8 @@ VEXLearn is a beginner-focused teaching template for tank-drive VEX V5 robots. I
 
 Version 1.0.0 is the current stable release on the `main` branch.
 
+**Original author:** Eric Lee · [Authorship and attribution](AUTHORS.md)
+
 ## Features
 
 - Voltage-based `move()` and `turn()` PID functions with heading correction and integral windup prevention
