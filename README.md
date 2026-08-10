@@ -20,9 +20,7 @@
 
 VEXLearn is a beginner-focused teaching template for tank-drive VEX V5 robots. Its source files include introductions, structure explanations, inline comments, and troubleshooting guidance so new programmers can learn from working code instead of a black-box library.
 
-Version 1.0.0 is the current stable release on the `main` branch.
-
-**Original author:** Eric Lee · [Authorship and attribution](AUTHORS.md)
+Created by Eric Lee. For more information, go to  · [Authorship and attribution](AUTHORS.md)
 
 ## Features
 
