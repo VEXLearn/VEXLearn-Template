@@ -12,44 +12,36 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>Foundations Curriculum - VEXLearn</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" type="button" aria-controls="guide-sidebar" aria-expanded="false" hidden>Contents</button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
+    <aside class="sidebar" id="guide-sidebar" aria-label="Page contents">
       <div class="toc-title">Foundations Curriculum</div>
       <ul class="toc-list">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#pathways">Pathways</a></li>
         <li><a href="#progress">Progress</a></li>
         <li><a href="#module-0">Module 0: Orientation</a></li>
+        <li class="toc-sub"><a href="#setup-lab">Setup lab</a></li>
         <li><a href="#module-1">Module 1: C++</a></li>
         <li><a href="#module-2">Module 2: Project</a></li>
         <li><a href="#module-3">Module 3: Driver Control</a></li>
@@ -62,19 +54,14 @@
       </ul>
     </aside>
 
-    <main class="content">
+    <main class="content" id="main-content" tabindex="-1">
       <div class="page-hero" id="overview">
-        <h1>VEXLearn <span class="highlight">Foundations</span></h1>
-        <p>From First Code to Reliable Autonomous</p>
-        <div class="page-badges">
-          <span class="badge badge-yellow">Pilot Version</span>
-          <span class="badge badge-purple">Eight Modules</span>
-          <span class="badge badge-green">10-14 Hours</span>
-        </div>
+        <h1>VEXLearn Foundations</h1>
+        <p class="page-meta">Pilot course, 8 modules, about 10 to 14 hours</p>
       </div>
 
-      <p>VEXLearn Foundations is a beginner curriculum for learning VEX V5 programming through documented, editable robot code. Students progress from basic C++ and robot configuration to driver control, PID movement, autonomous programming, and reliability testing.</p>
-      <p>The curriculum can be completed as a code-reading pathway without a robot or as a complete hardware pathway using a compatible tank-drive VEX V5 robot.</p>
+      <p>Start with basic C++ in the VEXLearn template. Then configure the motors, change how the controller drives the robot, and write an autonomous routine. The last modules cover PID tuning and testing the same route across repeated runs.</p>
+      <p>A school club can aim for one module per meeting. Allow extra meetings for Modules 5 through 7 if you are tuning or testing on a robot.</p>
 
       <h2>Intended Audience</h2>
       <ul>
@@ -85,29 +72,15 @@
         <li>Students who want to understand robot code before moving to more advanced frameworks</li>
       </ul>
 
-      <div class="callout info">
-        <span class="callout-icon" aria-hidden="true">&#9432;</span>
-        <div class="callout-content">
-          <strong>Recommended duration</strong>
-          <p>Complete the eight modules over approximately 10-14 hours. A school club could complete one module per meeting. Modules 5 through 7 may require multiple meetings because physical tuning and autonomous testing take time.</p>
-        </div>
-      </div>
-
-      <h2 id="pathways">Two Completion Pathways</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-title">Code Learning Path</div>
-          <p class="card-desc">No physical robot is required. Students read, trace, modify, and explain the VEXLearn source code. They complete Modules 0-4, code-reading versions of Modules 5-7, and a written capstone design.</p>
-        </div>
-        <div class="card">
-          <div class="card-title">Robot Programming Path</div>
-          <p class="card-desc">Students complete every module, physical testing, and the autonomous capstone using a compatible tank-drive VEX V5 robot, separate left and right motor groups, a V5 inertial sensor, the official VEX VS Code extension, and a safe testing area.</p>
-        </div>
-      </div>
+      <h2 id="pathways">Choose a course path</h2>
+      <h3>Code learning path</h3>
+      <p>Use a computer to read, modify, and explain the template. Complete Modules 0 through 4, the code-reading versions of Modules 5 through 7, and a written capstone design.</p>
+      <h3>Robot programming path</h3>
+      <p>Build and test the capstone on a tank-drive VEX V5 robot. You need separate left and right motor groups, a V5 inertial sensor, the official VEX extension for VS Code, and a safe testing area.</p>
 
       <h2 id="progress">Course Progress</h2>
       <p>Mark each module complete as you work. Progress is stored only in this browser on this device.</p>
-      <div class="checklist-progress">
+      <div class="checklist-progress" aria-label="Course progress">
         <div class="checklist-progress-bar">
           <div class="checklist-progress-fill" style="width:0%"></div>
         </div>
@@ -126,8 +99,62 @@
 
       <section class="curriculum-module">
         <h2 id="module-0">Module 0: Orientation and Baseline</h2>
-        <div class="module-meta"><span class="badge badge-purple">30-60 minutes</span><span class="badge badge-green">Both pathways</span></div>
-        <p>Learn what VEXLearn is designed to teach, understand its limitations, locate the major source files, choose a pathway, and complete a baseline assessment.</p>
+        <p class="module-meta">30 to 60 minutes. Both pathways.</p>
+        <p>Choose a pathway, install your tools, and locate the files you will use throughout the course.</p>
+
+        <h3 id="setup-lab">Follow-along setup lab</h3>
+        <p>Check each step when it matches what you see on your computer. Progress is saved in this browser.</p>
+        <div class="checklist-progress" aria-label="Setup lab progress">
+          <div class="checklist-progress-bar"><div class="checklist-progress-fill"></div></div>
+          <div class="checklist-progress-text">0 / 4 done</div>
+        </div>
+
+        <ol class="course-steps" data-storage-key="vexlearn-setup-lab-v1">
+          <li data-check-id="editor">
+            <div>
+              <h4>1. Install VS Code</h4>
+              <p>Get the <a href="https://code.visualstudio.com/download">VS Code installer</a> for your operating system. Install it and open VS Code.</p>
+              <label><input type="checkbox"> VS Code opens on my computer.</label>
+            </div>
+            <img src="images/vscode-download.png?v=2" width="2518" height="1303" alt="Visual Studio Code download page showing the Windows download button" loading="lazy">
+          </li>
+          <li data-check-id="extension">
+            <div>
+              <h4>2. Add the VEX extension</h4>
+              <p>Open Extensions in VS Code. Search for <strong>VEX Robotics</strong> and install the extension published by VEX Robotics.</p>
+              <label><input type="checkbox"> The VEX Robotics extension is installed.</label>
+            </div>
+            <img src="images/vex-extension.png?v=2" width="2555" height="1050" alt="The official VEX Robotics extension in VS Code search results" loading="lazy">
+          </li>
+          <li data-check-id="project">
+            <div>
+              <h4>3. Open the project</h4>
+              <p>Download and extract the <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Template.V1.0.0.zip">Template ZIP</a>. In VS Code, choose <strong>File &rarr; Open Folder</strong> and select the inner <code>VEXLearn Template</code> folder containing <code>makefile</code>.</p>
+              <label><input type="checkbox"> I can see src, include, and makefile.</label>
+            </div>
+            <div class="code-block"><pre><code class="language-plaintext">VEXLearn Template/
+  include/
+  src/
+  vex/
+  makefile</code></pre></div>
+          </li>
+          <li data-check-id="source">
+            <div>
+              <h4>4. Find the starting file</h4>
+              <p>Open <code>src/main.cpp</code> in the Explorer. Look for <code>main()</code> and the call to <code>pre_auton()</code>, which prepares the robot before the match.</p>
+              <label><input type="checkbox"> I found main.cpp and pre_auton().</label>
+            </div>
+            <div class="code-block"><pre><code class="language-plaintext">src/
+  main.cpp
+  robotConfig.cpp
+  drive.cpp
+  movement.cpp
+  auto.cpp
+  display.cpp</code></pre></div>
+          </li>
+        </ol>
+
+        <p>Working with a robot? Open the <a href="setup.html#setup-checklist">robot setup checklist</a> and return here for the baseline activity.</p>
 
         <h3>Required Reading</h3>
         <ul>
@@ -139,21 +166,19 @@
 
         <h3>Activities</h3>
         <ol>
-          <li>Download the latest release.</li>
-          <li>Open the correct inner project folder in VS Code.</li>
-          <li>Locate <code>main.cpp</code>, <code>robotConfig.cpp</code>, <code>drive.cpp</code>, <code>movement.cpp</code>, <code>auto.cpp</code>, and <code>display.cpp</code>.</li>
           <li>Complete the pre-course assessment.</li>
-          <li>Write one sentence describing the purpose of each source file.</li>
+          <li>Write one sentence describing the purpose of each of the six source files shown in the setup lab.</li>
         </ol>
 
         <h3>Evidence and Checkpoint</h3>
         <p>Submit a completed setup checklist, baseline score, six-file project map, and selected pathway. Pass by correctly matching at least five of the six major source files with their purpose.</p>
         <a class="worksheet-link" href="curriculum/pre-assessment.pdf" download>Download pre-course assessment</a>
+        <p class="lesson-next"><a href="#module-1">Continue to Module 1: C++</a></p>
       </section>
 
       <section class="curriculum-module">
         <h2 id="module-1">Module 1: C++ Fundamentals for VEX</h2>
-        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p class="module-meta">90 minutes. Both pathways.</p>
         <p>Identify common data types, declare and update variables, use operators, read control structures, explain function signatures, and distinguish declarations from definitions.</p>
 
         <h3>Required Reading</h3>
@@ -167,6 +192,11 @@ speed += 2;
 if (speed &gt; 6) {
     speed = 6;
 }</code></pre></div>
+
+        <details class="answer">
+          <summary>Check your prediction</summary>
+          <p><code>speed</code> ends at <strong>6</strong>. Adding 2 makes it 7, so the condition is true and the assignment sets it to 6.</p>
+        </details>
 
         <h3>Activity 2: Repair the Code</h3>
         <p>Correct at least five errors involving missing semicolons, incorrect variable types, assignment versus comparison, misspelled function names, and missing header declarations.</p>
@@ -182,7 +212,7 @@ if (speed &gt; 6) {
 
       <section class="curriculum-module">
         <h2 id="module-2">Module 2: Understanding the VEXLearn Project</h2>
-        <div class="module-meta"><span class="badge badge-purple">60-90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p class="module-meta">60 to 90 minutes. Both pathways.</p>
         <p>Trace functions across source and header files, explain the role of <code>main.cpp</code>, connect VEX objects to physical hardware, and identify Smart Ports and three-wire ports.</p>
 
         <h3>Required Reading</h3>
@@ -192,12 +222,12 @@ if (speed &gt; 6) {
         <p>Trace <code>move()</code> from <code>movement.h</code> to <code>movement.cpp</code> and then to a call in <code>auto.cpp</code>. Identify where it is declared, defined, and called, and explain each argument.</p>
 
         <h3>Activity 2: Hardware Map</h3>
-        <div class="table-container">
+        <div class="table-container" tabindex="0" role="region" aria-label="Example hardware map">
           <table>
             <thead><tr><th>Hardware</th><th>Software object</th><th>Port</th><th>Reversed?</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td>Left front motor</td><td><code>LeftFront</code></td><td>1</td><td>No</td><td>Chassis</td></tr>
-              <tr><td>Inertial sensor</td><td><code>Inertial</code></td><td>6</td><td>N/A</td><td>Heading</td></tr>
+              <tr><td>Left front motor</td><td><code>LeftMotor1</code></td><td>1</td><td>Yes</td><td>Chassis</td></tr>
+              <tr><td>Inertial sensor</td><td><code>Inertial</code></td><td>9</td><td>N/A</td><td>Heading</td></tr>
             </tbody>
           </table>
         </div>
@@ -213,7 +243,7 @@ if (speed &gt; 6) {
 
       <section class="curriculum-module">
         <h2 id="module-3">Module 3: Robot Configuration and Driver Control</h2>
-        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p class="module-meta">90 minutes. Both pathways.</p>
         <p>Configure motors and sensors, modify motor groups and driver behavior, change controller mappings, and use a Boolean variable to toggle a mechanism.</p>
 
         <h3>Required Reading</h3>
@@ -235,7 +265,7 @@ if (speed &gt; 6) {
 
       <section class="curriculum-module">
         <h2 id="module-4">Module 4: Autonomous Movement</h2>
-        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-green">Both pathways</span></div>
+        <p class="module-meta">90 minutes. Both pathways.</p>
         <p>Explain <code>auto.cpp</code>, use <code>move()</code> and <code>turn()</code>, understand their arguments, plan routes, and recognize when an advanced odometry-based template is more appropriate.</p>
 
         <h3>Required Reading</h3>
@@ -246,6 +276,11 @@ if (speed &gt; 6) {
 turn(90, 6);
 move(50, 90, 6);</code></pre></div>
         <p>Explain the expected behavior of each line, including distance, heading, and voltage.</p>
+
+        <details class="answer">
+          <summary>Check your route reading</summary>
+          <p>The first call moves 100 cm while holding 0&deg; with an 8 V limit. The turn targets 90&deg; with a 6 V limit. The last call moves 50 cm while holding 90&deg; with a 6 V limit.</p>
+        </details>
 
         <h3>Activity 2: Plan a Route</h3>
         <p>Draw a route with a starting position, distances, headings, mechanism actions, and expected ending position.</p>
@@ -260,7 +295,7 @@ move(50, 90, 6);</code></pre></div>
 
       <section class="curriculum-module">
         <h2 id="module-5">Module 5: PID Tuning Laboratory</h2>
-        <div class="module-meta"><span class="badge badge-purple">2-3 hours</span><span class="badge badge-yellow">Hardware testing recommended</span></div>
+        <p class="module-meta">2 to 3 hours. Hardware testing recommended.</p>
         <p>Explain proportional, integral, and derivative control; identify windup, overshoot, oscillation, and steady-state error; and select tuning values using controlled evidence.</p>
 
         <h3>Required Reading</h3>
@@ -283,7 +318,7 @@ move(50, 90, 6);</code></pre></div>
         </ol>
 
         <h3>Required Trial Data</h3>
-        <div class="table-container">
+        <div class="table-container" tabindex="0" role="region" aria-label="PID trial data">
           <table>
             <thead><tr><th>Trial</th><th>Kp</th><th>Ki</th><th>Kd</th><th>Target</th><th>Final error</th><th>Overshoot</th><th>Oscillation</th><th>Battery</th><th>Notes</th></tr></thead>
             <tbody>
@@ -300,7 +335,7 @@ move(50, 90, 6);</code></pre></div>
 
       <section class="curriculum-module">
         <h2 id="module-6">Module 6: Reliability, Debugging, and Testing</h2>
-        <div class="module-meta"><span class="badge badge-purple">90 minutes</span><span class="badge badge-yellow">Hardware testing recommended</span></div>
+        <p class="module-meta">90 minutes. Hardware testing recommended.</p>
         <p>Separate software from hardware failures, use repeated trials, record failure conditions, evaluate environmental factors, and revise code using testing evidence.</p>
 
         <h3>Required Reading</h3>
@@ -320,11 +355,8 @@ move(50, 90, 6);</code></pre></div>
 
       <section class="curriculum-module">
         <h2 id="module-7">Module 7: Final Autonomous Capstone</h2>
-        <div class="module-meta"><span class="badge badge-purple">2-4 hours</span><span class="badge badge-yellow">Final project</span></div>
-        <div class="callout success">
-          <span class="callout-icon" aria-hidden="true">&#10003;</span>
-          <div class="callout-content"><strong>Challenge</strong><p>Design, program, test, and explain a short autonomous routine using the VEXLearn template.</p></div>
-        </div>
+        <p class="module-meta">2 to 4 hours. Final project.</p>
+        <p>Design, program, test, and explain a short autonomous routine using the VEXLearn template.</p>
 
         <h3>Minimum Requirements</h3>
         <ul>
@@ -361,7 +393,7 @@ move(50, 90, 6);</code></pre></div>
       </section>
 
       <h2 id="assessment">Capstone Rubric</h2>
-      <div class="table-container">
+      <div class="table-container" tabindex="0" role="region" aria-label="Capstone rubric">
         <table>
           <thead><tr><th>Category</th><th>Points</th></tr></thead>
           <tbody>
@@ -414,9 +446,8 @@ move(50, 90, 6);</code></pre></div>
       </div>
       <p><a class="worksheet-link" href="curriculum/instructor-guide.pdf" download>Download instructor guide</a></p>
 
-      <h3>Publication Status</h3>
-      <p><strong>VEXLearn Foundations Curriculum - Pilot Version</strong></p>
-      <p>After testing the curriculum with students, publish the number who began and completed it, pre/post assessment changes, capstone completion, common difficulties, and revisions made from feedback. Do not claim educational effectiveness until these results have been collected.</p>
+      <h3>What to record during the pilot</h3>
+      <p>Record how many students start and finish, how assessment scores change, and how many complete the capstone. Note where students get stuck and what you change in response.</p>
 
       <div class="page-footer">
         <div class="footer-nav"><a href="index.html" class="footer-nav-link">&#8592; Home</a></div>
@@ -426,7 +457,7 @@ move(50, 90, 6);</code></pre></div>
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

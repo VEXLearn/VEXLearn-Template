@@ -13,385 +13,59 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>VEXLearn - Learn VEX V5 C++</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-  <style>
-    .hero {
-      padding: 64px 0 56px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 48px;
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent-purple-light);
-      margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .hero h1 .vex { color: var(--text-secondary); }
-    .hero h1 .learn { color: var(--accent-yellow); }
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      max-width: 560px;
-      margin-bottom: 32px;
-      line-height: 1.7;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--accent-purple);
-      color: white;
-      padding: 11px 24px;
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      border: 2px solid var(--accent-purple);
-    }
-    .btn-primary:hover {
-      background: var(--accent-purple-light);
-      border-color: var(--accent-purple-light);
-      text-decoration: none;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-      padding: 11px 24px;
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 2px solid var(--border-light);
-      transition: var(--transition);
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent-purple);
-      color: var(--accent-purple-light);
-      text-decoration: none;
-    }
-    .section-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .nav-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .nav-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      text-decoration: none;
-      transition: var(--transition);
-      display: block;
-    }
-    .nav-card:hover {
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 0 1px rgba(123,63,228,0.3), var(--shadow);
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-    .nav-card-number {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .nav-card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .nav-card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-    .nav-card-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      margin: 0;
-    }
-    .nav-card-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
-    }
-    .topic-tag {
-      font-size: 0.72rem;
-      background: rgba(123,63,228,0.12);
-      color: var(--text-secondary);
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(123,63,228,0.15);
-    }
-    .quick-start {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      margin-bottom: 40px;
-    }
-    .quick-start h2 {
-      margin-top: 0;
-      border-bottom: none;
-      padding-bottom: 0;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .quick-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .quick-step {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .quick-step-num {
-      width: 28px;
-      height: 28px;
-      background: var(--accent-purple);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .quick-step-content h4 {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 4px 0 4px;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-    .quick-step-content p {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin: 0;
-      line-height: 1.5;
-    }
-    .about-section {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-    }
-    .about-section p {
-      color: var(--text-secondary);
-      max-width: 680px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
-  <div id="progress-bar" aria-hidden="true"></div>
-
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </nav>
   </header>
 
-  <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
-      <div class="toc-title">On this page</div>
-      <ul class="toc-list">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#sections">Guide Sections</a></li>
-        <li><a href="#quick-start">Quick Start</a></li>
-        <li><a href="#about">About VEXLearn</a></li>
+  <main class="home-content" id="main-content" tabindex="-1">
+    <div class="home-reading" id="overview">
+      <h1>Program a VEX&nbsp;V5 robot</h1>
+      <p class="home-intro">Learn C++ with a template for VEX V5 tank-drive robots. Read the controller code, write autonomous routes, and learn how to tune PID.</p>
+
+      <section class="home-paths" id="quick-start" aria-labelledby="path-heading">
+        <h2 id="path-heading">Do I need a robot?</h2>
+        <p>You can do the code-reading path with just a computer.</p>
+        <ul class="home-choices">
+          <li>
+            <a href="curriculum.html#module-0">Start Foundations</a>
+            <p>Open the template and trace your first C++ function.</p>
+          </li>
+          <li>
+            <a href="curriculum.html#setup-lab">Set up my VEX V5</a>
+            <p>Install the tools and configure your tank-drive robot.</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="home-resources" id="sections" aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Course materials</h2>
+      <ul class="resource-links">
+        <li><a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Template.V1.0.0.zip">Template ZIP</a> <span>v1.0.0</span></li>
+        <li><a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Guide.V3.2.pdf">Guide PDF</a> <span>v3.2</span></li>
+        <li><a href="guides.html">Browse guides</a></li>
       </ul>
-    </aside>
+    </section>
 
-    <main class="content">
-      <div class="hero" id="overview">
-        <div class="hero-eyebrow">Template for Learning</div>
-        <h1><span class="vex">VEX</span><span class="learn">LEARN</span><br>Guide</h1>
-        <p class="hero-desc">
-          A comprehensive guide to the VEXLearn template, covering setup, C++ fundamentals,
-          VEX robotics concepts, PID control, and tips from a two-year VEX competitor.
-        </p>
-        <div class="hero-buttons">
-          <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="btn-primary">Download Latest Release &#8594;</a>
-          <a href="guides.html" class="btn-secondary">Guides</a>
-        </div>
-      </div>
-
-      <div id="sections">
-        <div class="section-title">Guide Sections</div>
-        <div class="nav-card-grid">
-          <a href="curriculum.html" class="nav-card">
-            <div class="nav-card-number">00</div>
-            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
-            <div class="nav-card-title">Foundations Curriculum</div>
-            <p class="nav-card-desc">Follow an eight-module pathway from first code through PID tuning and reliable autonomous routines.</p>
-            <div class="nav-card-topics">
-              <span class="topic-tag">Eight Modules</span>
-              <span class="topic-tag">Worksheets</span>
-              <span class="topic-tag">Capstone</span>
-            </div>
-          </a>
-
-          <a href="setup.html" class="nav-card">
-            <div class="nav-card-number">01</div>
-            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
-            <div class="nav-card-title">Setup Guide</div>
-            <p class="nav-card-desc">Install VS Code, the VEX extension, and configure the VEXLearn template for your robot.</p>
-            <div class="nav-card-topics">
-              <span class="topic-tag">VS Code</span>
-              <span class="topic-tag">VEX Extension</span>
-              <span class="topic-tag">Template Setup</span>
-            </div>
-          </a>
-
-          <a href="tips.html" class="nav-card">
-            <div class="nav-card-number">02</div>
-            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
-            <div class="nav-card-title">Tips for Coders</div>
-            <p class="nav-card-desc">Real-world advice on autonomous functions, templates, burnout, and engineering notebooks.</p>
-            <div class="nav-card-topics">
-              <span class="topic-tag">Autonomous</span>
-              <span class="topic-tag">PID Tuning</span>
-              <span class="topic-tag">Teamwork</span>
-            </div>
-          </a>
-
-          <a href="cpp.html" class="nav-card">
-            <div class="nav-card-number">03</div>
-            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
-            <div class="nav-card-title">C++ Fundamentals</div>
-            <p class="nav-card-desc">Data types, variables, operators, loops, functions, header files, and namespaces.</p>
-            <div class="nav-card-topics">
-              <span class="topic-tag">Syntax</span>
-              <span class="topic-tag">Operators</span>
-              <span class="topic-tag">Functions</span>
-              <span class="topic-tag">OOP</span>
-            </div>
-          </a>
-
-          <a href="vex-concepts.html" class="nav-card">
-            <div class="nav-card-number">04</div>
-            <span class="nav-card-icon" aria-hidden="true">&#9656;</span>
-            <div class="nav-card-title">VEX Concepts</div>
-            <p class="nav-card-desc">Ports, motors, PID control, threads, gear ratios, voltage control, and inertial heading.</p>
-            <div class="nav-card-topics">
-              <span class="topic-tag">PID</span>
-              <span class="topic-tag">Threads</span>
-              <span class="topic-tag">Ports</span>
-              <span class="topic-tag">Motors</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div id="quick-start" class="quick-start">
-        <h2>Quick Start</h2>
-        <div class="quick-steps">
-          <div class="quick-step">
-            <div class="quick-step-num">1</div>
-            <div class="quick-step-content">
-              <h4>Install VS Code</h4>
-              <p>Download and install Visual Studio Code from code.visualstudio.com</p>
-            </div>
-          </div>
-          <div class="quick-step">
-            <div class="quick-step-num">2</div>
-            <div class="quick-step-content">
-              <h4>Install VEX Extension</h4>
-              <p>Search "VEX Robotics" in the Extensions tab and install it</p>
-            </div>
-          </div>
-          <div class="quick-step">
-            <div class="quick-step-num">3</div>
-            <div class="quick-step-content">
-              <h4>Download Template</h4>
-              <p>Extract the VEXLearn Template ZIP and open it in VS Code</p>
-            </div>
-          </div>
-          <div class="quick-step">
-            <div class="quick-step-num">4</div>
-            <div class="quick-step-content">
-              <h4>Configure &amp; Use</h4>
-              <p>Set up robotConfig.cpp to match your robot's motors and sensors</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="about" class="about-section">
-        <h2 style="margin-top:0; border-bottom:none; padding-bottom:0; font-size:1.2rem; margin-bottom:12px;">About VEXLearn</h2>
-        <p>
-          VEXLearn is a template designed for learning VEX V5 programming in C++.
-          It provides a structured codebase with PID-based movement functions, a display system,
-          and a clean architecture to help new programmers get started quickly. It is intended
-          for tank-drive V5 robots using the VEX VS Code extension.
-        </p>
-        <p>
-          This guide was written from personal experience over two years of VEX competition,
-          covering both the technical aspects of the template and the practical realities of
-          being a coder on a VEX team.
-        </p>
-        <div class="page-badges" style="margin-top:16px;">
-          <span class="badge badge-purple">VEX V5</span>
-          <span class="badge badge-yellow">C++</span>
-          <span class="badge badge-green">v1.0.0</span>
-        </div>
-      </div>
-
-      <div class="page-footer">
-        <div></div>
-        <div class="footer-nav">
-          <a href="setup.html" class="footer-nav-link next">Setup Guide &#8594;</a>
-        </div>
-        <button class="back-to-top" type="button">&#8593; Top</button>
-      </div>
-    </main>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+    <section class="home-about" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About VEXLearn</h2>
+      <p>The examples come from VEX competition experience. To build and download the template to a robot, use the official VEX extension for VS Code.</p>
+    </section>
+  </main>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

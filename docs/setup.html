@@ -12,38 +12,29 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>Setup Guide - VEXLearn</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" type="button" aria-controls="guide-sidebar" aria-expanded="false" hidden>Contents</button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
+    <aside class="sidebar" id="guide-sidebar" aria-label="Page contents">
       <div class="toc-title">Setup Guide</div>
       <ul class="toc-list">
         <li><a href="#vscode">Install VS Code</a></li>
@@ -52,30 +43,26 @@
         <li class="toc-sub"><a href="#learning-only">For Learning Only</a></li>
         <li class="toc-sub"><a href="#for-use">For Use on Robot</a></li>
         <li class="toc-sub"><a href="#setup-checklist">Setup Checklist</a></li>
+        <li><a href="#practice">Practice exercise</a></li>
       </ul>
     </aside>
 
-    <main class="content">
+    <main class="content" id="main-content" tabindex="-1">
       <div class="page-hero">
-        <h1>Setup <span class="highlight">Guide</span></h1>
-        <p>Get VS Code, the VEX extension, and the VEXLearn template installed and configured on your machine.</p>
-        <div class="page-badges">
-          <span class="badge badge-purple">VS Code</span>
-          <span class="badge badge-yellow">VEX Extension</span>
-          <span class="badge badge-green">Windows</span>
-        </div>
+        <h1>Setup Guide</h1>
+        <p>Install VS Code and the VEX Robotics extension, then open the VEXLearn project.</p>
+        <p class="page-meta">The installation screenshots show Windows.</p>
       </div>
 
       <!-- VS Code -->
+      <p><a href="curriculum.html#setup-lab">Follow along in the course setup lab</a> to check your progress as you install the tools.</p>
+
       <h2 id="vscode">Installing VS Code</h2>
-      <p>Visual Studio Code is the recommended code editor for VEXLearn. Follow these steps to install it.</p>
 
       <ol class="steps">
-        <li>Open your browser (Chrome, Edge, Firefox, etc.)</li>
-        <li>In the address bar, type <code>code.visualstudio.com</code> and press Enter
+        <li>Open the <a href="https://code.visualstudio.com/download">Visual Studio Code download page</a> and choose <strong>Download for Windows</strong>.
           <img class="setup-img" src="images/vscode-download.png?v=2" alt="VS Code website download page">
         </li>
-        <li>Click the <strong>Download for Windows</strong> button and wait for the file to download</li>
         <li>Open the downloaded installer file</li>
         <li>Accept the license agreement and click <strong>Next</strong>
           <img class="setup-img" src="images/vscode-agreement.png?v=2" alt="VS Code license agreement screen">
@@ -130,7 +117,7 @@
       </ul>
 
       <ol class="steps">
-        <li>Download the ZIP file from the releases page (link is in the README section of the GitHub repo)</li>
+        <li>Download the <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Template.V1.0.0.zip">VEXLearn Template ZIP</a></li>
         <li>Extract the ZIP file to a location on your computer</li>
         <li>
           Open VS Code, go to <strong>File &rarr; Open Folder</strong>, and open the extracted folder.
@@ -152,123 +139,127 @@
         </li>
       </ol>
 
-      <!-- Tabs: Learning Only vs For Use -->
-      <h2 id="learning-only">Learning Only vs. For Use</h2>
-      <p>Depending on your goal, the setup is different. Choose your path below.</p>
+      <h2 id="learning-only">Choose your setup</h2>
+      <p>Follow the section for how you plan to use the template.</p>
 
-      <div class="tabs">
-        <div class="tab-buttons">
-          <button class="tab-btn active">For Learning Software Only</button>
-          <button class="tab-btn" id="for-use">For Use on a Robot</button>
-        </div>
-
-        <div class="tab-content active" id="tab-learning">
-          <div class="callout success">
-            <span class="callout-icon" aria-hidden="true">&#9432;</span>
-            <div class="callout-content">
-              <p>If you just want to explore how the code works and learn from it, <strong>no extra setup is needed</strong> beyond installing the template. You're done!</p>
-            </div>
-          </div>
-          <p>Browse the source files to understand how the template is structured:</p>
-          <ul>
-            <li><code>src/main.cpp</code>: Entry point, thread setup, pre-auton calibration</li>
-            <li><code>src/drive.cpp</code>: Driver control and button mappings</li>
-            <li><code>src/movement.cpp</code>: PID-based move and turn functions</li>
-            <li><code>src/auto.cpp</code>: Autonomous functions</li>
-            <li><code>src/display.cpp</code>: Brain and controller screen rendering</li>
-            <li><code>src/robotConfig.cpp</code>: Motor, sensor, and piston objects</li>
-          </ul>
-        </div>
-
-        <div class="tab-content" id="tab-use">
-          <p>Your robot must meet these hardware requirements:</p>
-          <ul>
-            <li>Tank-drive chassis (no X-drive, H-drive, or mecanum)</li>
-            <li>All chassis wheels must be the same size</li>
-            <li>Clear split between left and right chassis motor groups</li>
-            <li>Omni wheels and traction wheels are both fine</li>
-            <li>Must have an inertial sensor</li>
-            <li>Only V5 motors (not EXP or IQ)</li>
-            <li>Only one controller</li>
-          </ul>
-
-          <h3 id="setup-checklist">Robot Setup Checklist</h3>
-          <p>Click each step to mark it complete as you go:</p>
-
-          <div class="checklist-progress">
-            <div class="checklist-progress-bar">
-              <div class="checklist-progress-fill" style="width:0%"></div>
-            </div>
-            <div class="checklist-progress-text">0 / 14 done</div>
-          </div>
-
-          <ul class="checklist">
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">Go to <code>vex.h</code> and change <code>wheel_2r</code> to your wheel diameter</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>robotConfig.cpp</code>: add/remove motors with correct gear ratio, port, and direction</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>robotConfig.cpp</code>: add/remove sensors with correct port number</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>robotConfig.cpp</code>: add/remove pistons with correct three-wire port</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>robotConfig.cpp</code>: update motor groups so motor names match</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>robotConfig.h</code>: initialize the same objects created in robotConfig.cpp</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>movement.cpp</code>: update the gear ratio in the move function (default is 4/3)</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>drive.cpp</code>: delete examples, write your button mappings</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>main.cpp</code>: update pre_auton to calibrate your sensors</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>display.cpp</code>: remove motors that don't exist, update team name/number</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">Compile the project and confirm that it has no errors (warnings are acceptable)</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">Run on the robot and verify it works. Adjust driver preferences (deadband, sensitivity)</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>auto.cpp</code>: write a simple PID test function (e.g. <code>move(100, 0, 8);</code>) and tune PID</span>
-            </li>
-            <li>
-              <div class="check-box"></div>
-              <span class="check-text">In <code>auto.h</code>: declare your PID tuning function. Robot is ready!</span>
-            </li>
-          </ul>
-
-          <div class="callout info" style="margin-top:20px;">
-            <span class="callout-icon" aria-hidden="true">&#9432;</span>
-            <div class="callout-content">
-              <p>When you're done with setup, start tuning PID for <code>move()</code> and <code>turn()</code> in <code>movement.cpp</code>. See the <a href="vex-concepts.html#pid">VEX Concepts &rarr; PID</a> section for tuning guidance.</p>
-            </div>
+      <section id="tab-learning">
+        <h3>For learning without a robot</h3>
+        <div class="callout success">
+          <span class="callout-icon" aria-hidden="true">&#9432;</span>
+          <div class="callout-content">
+            <p>If you just want to explore how the code works and learn from it, <strong>no extra setup is needed</strong> beyond installing the template. You're done!</p>
           </div>
         </div>
-      </div>
+        <p>Browse the source files to understand how the template is structured:</p>
+        <ul>
+          <li><code>src/main.cpp</code>: Entry point, thread setup, pre-auton calibration</li>
+          <li><code>src/drive.cpp</code>: Driver control and button mappings</li>
+          <li><code>src/movement.cpp</code>: PID-based move and turn functions</li>
+          <li><code>src/auto.cpp</code>: Autonomous functions</li>
+          <li><code>src/display.cpp</code>: Brain and controller screen rendering</li>
+          <li><code>src/robotConfig.cpp</code>: Motor, sensor, and piston objects</li>
+        </ul>
+      </section>
+
+      <section id="tab-use">
+        <h3 id="for-use">For use on a robot</h3>
+        <p>Your robot must meet these hardware requirements:</p>
+        <ul>
+          <li>Tank-drive chassis (no X-drive, H-drive, or mecanum)</li>
+          <li>All chassis wheels must be the same size</li>
+          <li>Clear split between left and right chassis motor groups</li>
+          <li>Omni wheels and traction wheels are both fine</li>
+          <li>Must have an inertial sensor</li>
+          <li>Only V5 motors (not EXP or IQ)</li>
+          <li>Only one controller</li>
+        </ul>
+
+        <h3 id="setup-checklist">Robot Setup Checklist</h3>
+        <p>Click each step to mark it complete as you go:</p>
+
+        <div class="checklist-progress">
+          <div class="checklist-progress-bar">
+            <div class="checklist-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="checklist-progress-text">0 / 14 done</div>
+        </div>
+
+        <ul class="checklist">
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">Go to <code>vex.h</code> and change <code>wheel_2r</code> to your wheel diameter</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>robotConfig.cpp</code>: add/remove motors with correct gear ratio, port, and direction</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>robotConfig.cpp</code>: add/remove sensors with correct port number</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>robotConfig.cpp</code>: add/remove pistons with correct three-wire port</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>robotConfig.cpp</code>: update motor groups so motor names match</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>robotConfig.h</code>: declare the same objects defined in robotConfig.cpp using <code>extern</code></span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>movement.cpp</code>: update the gear ratio in the move function (default is 4/3)</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>drive.cpp</code>: delete examples, write your button mappings</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>main.cpp</code>: update pre_auton to calibrate your sensors</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>display.cpp</code>: remove motors that don't exist, update team name/number</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">Compile the project and confirm that it has no errors (warnings are acceptable)</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">Run on the robot and verify it works. Adjust driver preferences (deadband, sensitivity)</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>auto.cpp</code>: write a simple PID test function (e.g. <code>move(100, 0, 8);</code>) and tune PID</span>
+          </li>
+          <li>
+            <div class="check-box"></div>
+            <span class="check-text">In <code>auto.h</code>: declare your PID tuning function. Robot is ready!</span>
+          </li>
+        </ul>
+
+        <div class="callout info" style="margin-top:20px;">
+          <span class="callout-icon" aria-hidden="true">&#9432;</span>
+          <div class="callout-content">
+            <p>When you're done with setup, start tuning PID for <code>move()</code> and <code>turn()</code> in <code>movement.cpp</code>. See the <a href="vex-concepts.html#pid">VEX Concepts &rarr; PID</a> section for tuning guidance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice" aria-labelledby="practice">
+        <h2 id="practice">Practice: Find the project folder</h2>
+        <p><strong>Worked example.</strong> If VS Code shows just one folder called <code>VEXLearn Template</code> in Explorer, open it and check for <code>src</code>, <code>include</code>, and <code>makefile</code>. Open the folder that contains those items.</p>
+        <p><strong>Your turn.</strong> The ZIP extracted to <code>Downloads/VEXLearn Release/VEXLearn Template</code>. Which folder do you select in <strong>File &rarr; Open Folder</strong>?</p>
+        <details class="answer">
+          <summary>Reveal the answer</summary>
+          <p>Open the inner <code>VEXLearn Template</code> folder. It is the project root because it contains <code>makefile</code>, <code>src</code>, and <code>include</code>.</p>
+        </details>
+      </section>
 
       <div class="page-footer">
         <div class="footer-nav">
@@ -282,7 +273,7 @@
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

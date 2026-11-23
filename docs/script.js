@@ -21,23 +21,29 @@ function initMobileNav() {
   const hamburger = document.querySelector('.nav-hamburger');
   const sidebar = document.querySelector('.sidebar');
   if (!hamburger || !sidebar) return;
+  hamburger.hidden = false;
+  const mobile = window.matchMedia('(max-width: 800px)');
 
   function setOpen(open) {
     sidebar.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', String(open));
-    hamburger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   }
 
   hamburger.addEventListener('click', () => {
-    setOpen(!sidebar.classList.contains('open'));
+    const open = !sidebar.classList.contains('open');
+    setOpen(open);
+    if (open) sidebar.querySelector('a')?.focus({ preventScroll: true });
   });
 
   // Close sidebar when clicking a link inside it
   sidebar.querySelectorAll('a').forEach(link => {
+    const target = document.getElementById(link.hash.slice(1));
+    if (target && link.getAttribute('href').startsWith('#')) target.tabIndex = -1;
     link.addEventListener('click', () => {
       setOpen(false);
     });
   });
+  mobile.addEventListener('change', () => setOpen(false));
 
   // Close on outside click
   document.addEventListener('click', (e) => {
@@ -59,7 +65,7 @@ function initMobileNav() {
 // ========================
 function initActiveNav() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
+  document.querySelectorAll('.nav-links a, .nav-logo').forEach(a => {
     const href = a.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       a.classList.add('active');
@@ -74,6 +80,7 @@ function initActiveNav() {
 function initScrollSpy() {
   const tocLinks = document.querySelectorAll('.toc-list a');
   if (tocLinks.length === 0) return;
+  const headerHeight = document.querySelector('.site-header')?.offsetHeight ?? 0;
 
   const sections = Array.from(tocLinks)
     .map(a => {
@@ -92,7 +99,7 @@ function initScrollSpy() {
         }
       });
     },
-    { rootMargin: '-80px 0px -60% 0px' }
+    { rootMargin: `-${headerHeight + 8}px 0px -60% 0px` }
   );
 
   sections.forEach(s => observer.observe(s));
@@ -198,8 +205,8 @@ function initTabs() {
 // Interactive Checklist
 // ========================
 function initChecklists() {
-  document.querySelectorAll('.checklist').forEach(list => {
-    const items = list.querySelectorAll('li');
+  document.querySelectorAll('.checklist, .course-steps').forEach(list => {
+    const items = Array.from(list.children);
     const progressEl = list.previousElementSibling;
     const storageKey = list.dataset.storageKey;
 
@@ -228,16 +235,14 @@ function initChecklists() {
     }
 
     items.forEach(item => {
-      item.tabIndex = 0;
-      item.setAttribute('role', 'checkbox');
-      item.setAttribute('aria-checked', String(item.classList.contains('done')));
+      const checkbox = item.querySelector('input[type="checkbox"]');
 
-      function toggleItem() {
-        item.classList.toggle('done');
-        item.setAttribute('aria-checked', String(item.classList.contains('done')));
+      function setDone(done) {
+        item.classList.toggle('done', done);
+        if (!checkbox) item.setAttribute('aria-checked', String(done));
         if (storageKey) {
           try {
-            const completed = [...items]
+            const completed = items
               .filter(checkItem => checkItem.classList.contains('done'))
               .map(checkItem => checkItem.dataset.checkId);
             localStorage.setItem(storageKey, JSON.stringify(completed));
@@ -248,6 +253,16 @@ function initChecklists() {
         updateProgress();
       }
 
+      if (checkbox) {
+        checkbox.checked = item.classList.contains('done');
+        checkbox.addEventListener('change', () => setDone(checkbox.checked));
+        return;
+      }
+
+      item.tabIndex = 0;
+      item.setAttribute('role', 'checkbox');
+      item.setAttribute('aria-checked', String(item.classList.contains('done')));
+      const toggleItem = () => setDone(!item.classList.contains('done'));
       item.addEventListener('click', toggleItem);
       item.addEventListener('keydown', (e) => {
         if (e.key === ' ' || e.key === 'Enter') {
@@ -293,13 +308,20 @@ function initPIDVisualizer() {
   const runBtn = document.getElementById('pid-run');
   const status = document.getElementById('pid-status');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const colors = {
+    grid: '#d8dcd8',
+    label: '#41494e',
+    target: '#765013',
+    curve: '#23517c',
+    overshoot: '#aa283a',
+    settled: '#21694a',
+  };
 
   let animFrame = null;
 
   function resizeCanvas() {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width - 48;
-    canvas.height = 200;
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
   }
 
   function simulate(Kp, Ki, Kd) {
@@ -347,7 +369,7 @@ function initPIDVisualizer() {
     ctx.clearRect(0, 0, w, h);
 
     // Background grid
-    ctx.strokeStyle = 'rgba(42,42,80,0.8)';
+    ctx.strokeStyle = colors.grid;
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
       const y = 16 + (h - pad - 16) * (i / 4);
@@ -359,7 +381,7 @@ function initPIDVisualizer() {
 
     // Target line placed at value 1.0
     const targetY = toY(1.0);
-    ctx.strokeStyle = 'rgba(245, 166, 35, 0.5)';
+    ctx.strokeStyle = colors.target;
     ctx.lineWidth = 1;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -367,25 +389,23 @@ function initPIDVisualizer() {
     ctx.lineTo(w - 16, targetY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = 'rgba(245, 166, 35, 0.7)';
+    ctx.fillStyle = colors.target;
     ctx.font = '11px monospace';
     ctx.fillText('Target', w - 16 - 46, targetY - 5);
 
     // Plot curve
-    ctx.strokeStyle = '#7b3fe4';
+    ctx.strokeStyle = colors.curve;
     ctx.lineWidth = 2.5;
-    ctx.shadowColor = 'rgba(123,63,228,0.6)';
-    ctx.shadowBlur = 6;
+
     ctx.beginPath();
     data.forEach((v, i) => {
       if (i === 0) ctx.moveTo(toX(i), toY(v));
       else ctx.lineTo(toX(i), toY(v));
     });
     ctx.stroke();
-    ctx.shadowBlur = 0;
 
     // Y-axis tick labels
-    ctx.fillStyle = 'rgba(144,144,176,0.8)';
+    ctx.fillStyle = colors.label;
     ctx.font = '10px monospace';
     ctx.textAlign = 'right';
     [0, 0.5, 1.0].forEach(v => {
@@ -397,14 +417,14 @@ function initPIDVisualizer() {
     ctx.save();
     ctx.translate(10, h / 2 - 8);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = 'rgba(144,144,176,0.6)';
+    ctx.fillStyle = colors.label;
     ctx.font = '10px monospace';
     ctx.textAlign = 'center';
     ctx.fillText('Position (units)', 0, 0);
     ctx.restore();
 
     // X-axis title
-    ctx.fillStyle = 'rgba(144,144,176,0.6)';
+    ctx.fillStyle = colors.label;
     ctx.font = '10px monospace';
     ctx.textAlign = 'center';
     ctx.fillText('Time (steps)', w / 2, h - 4);
@@ -414,7 +434,7 @@ function initPIDVisualizer() {
     const maxPos = Math.max(...data);
     if (maxPos > 1.02) {
       const pct = ((maxPos - 1) * 100).toFixed(1);
-      ctx.fillStyle = 'rgba(231,76,60,0.8)';
+      ctx.fillStyle = colors.overshoot;
       ctx.font = '11px monospace';
       ctx.fillText(`Overshoot: ${pct}%`, pad + 8, 30);
     }
@@ -422,9 +442,11 @@ function initPIDVisualizer() {
     // Final error
     const finalPos = data[data.length - 1];
     const err = Math.abs(finalPos - 1);
-    ctx.fillStyle = err < 0.05 ? 'rgba(46,204,113,0.8)' : 'rgba(245,166,35,0.8)';
+    ctx.fillStyle = err < 0.05 ? colors.settled : colors.target;
     ctx.font = '11px monospace';
-    ctx.fillText(`Final error: ${(err * 100).toFixed(1)}%`, w - 16 - 140, 30);
+    ctx.textAlign = 'right';
+    ctx.fillText(`Final error: ${(err * 100).toFixed(1)}%`, w - 20, maxPos > 1.02 && w < 320 ? 46 : 30);
+    ctx.textAlign = 'left';
     if (status) status.textContent = `PID simulation final error: ${(err * 100).toFixed(1)} percent.`;
   }
 
@@ -473,7 +495,7 @@ function initPIDVisualizer() {
 
         ctx.clearRect(0, 0, w, h);
 
-        ctx.strokeStyle = 'rgba(42,42,80,0.8)';
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         for (let g = 0; g <= 4; g++) {
           const y = 16 + (h - pad - 16) * (g / 4);
@@ -481,30 +503,30 @@ function initPIDVisualizer() {
         }
 
         const tY = toY(1.0);
-        ctx.strokeStyle = 'rgba(245,166,35,0.5)'; ctx.lineWidth = 1; ctx.setLineDash([6,4]);
+        ctx.strokeStyle = colors.target; ctx.lineWidth = 1; ctx.setLineDash([6,4]);
         ctx.beginPath(); ctx.moveTo(pad, tY); ctx.lineTo(w - 16, tY); ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = 'rgba(245,166,35,0.7)'; ctx.font = '11px monospace';
+        ctx.fillStyle = colors.target; ctx.font = '11px monospace';
         ctx.fillText('Target', w - 16 - 46, tY - 5);
 
-        ctx.fillStyle = 'rgba(144,144,176,0.8)'; ctx.font = '10px monospace';
+        ctx.fillStyle = colors.label; ctx.font = '10px monospace';
         ctx.textAlign = 'right';
         [0, 0.5, 1.0].forEach(v => { ctx.fillText(v.toFixed(1), pad - 5, toY(v) + 4); });
         ctx.textAlign = 'left';
         ctx.save(); ctx.translate(10, h / 2 - 8); ctx.rotate(-Math.PI / 2);
-        ctx.fillStyle = 'rgba(144,144,176,0.6)'; ctx.font = '10px monospace';
+        ctx.fillStyle = colors.label; ctx.font = '10px monospace';
         ctx.textAlign = 'center'; ctx.fillText('Position (units)', 0, 0); ctx.restore();
-        ctx.fillStyle = 'rgba(144,144,176,0.6)'; ctx.font = '10px monospace';
+        ctx.fillStyle = colors.label; ctx.font = '10px monospace';
         ctx.textAlign = 'center'; ctx.fillText('Time (steps)', w / 2, h - 4); ctx.textAlign = 'left';
 
-        ctx.strokeStyle = '#7b3fe4'; ctx.lineWidth = 2.5;
-        ctx.shadowColor = 'rgba(123,63,228,0.6)'; ctx.shadowBlur = 6;
+        ctx.strokeStyle = colors.curve; ctx.lineWidth = 2.5;
+
         ctx.beginPath();
         partial.forEach((v, idx) => {
           if (idx === 0) ctx.moveTo(toX(idx), toY(v));
           else ctx.lineTo(toX(idx), toY(v));
         });
-        ctx.stroke(); ctx.shadowBlur = 0;
+        ctx.stroke();
 
         step++;
         if (step < anim.length) animFrame = requestAnimationFrame(frame);

@@ -12,38 +12,29 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>C++ Fundamentals - VEXLearn</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" type="button" aria-controls="guide-sidebar" aria-expanded="false" hidden>Contents</button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
+    <aside class="sidebar" id="guide-sidebar" aria-label="Page contents">
       <div class="toc-title">C++ Fundamentals</div>
       <ul class="toc-list">
         <li><a href="#datatypes">Data Types</a></li>
@@ -58,17 +49,15 @@
         <li class="toc-sub"><a href="#include">File Integration</a></li>
         <li class="toc-sub"><a href="#functions">Functions</a></li>
         <li class="toc-sub"><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#practice">Practice exercise</a></li>
       </ul>
     </aside>
 
-    <main class="content">
+    <main class="content" id="main-content" tabindex="-1">
       <div class="page-hero">
-        <h1>C++ <span class="highlight">Fundamentals</span></h1>
+        <h1>C++ Fundamentals</h1>
         <p>The C++ concepts you need to use the VEXLearn template and write VEX software: data types, syntax, loops, functions, header files, and namespaces.</p>
-        <div class="page-badges">
-          <span class="badge badge-purple">C++</span>
-          <span class="badge badge-yellow">Beginner</span>
-        </div>
+        <p class="page-meta">Beginner guide</p>
       </div>
 
       <!-- Data Types -->
@@ -444,6 +433,19 @@ wait(1, sec);</code></pre>
         </div>
       </div>
 
+      <section class="practice" aria-labelledby="practice">
+        <h2 id="practice">Practice: Trace a C++ function</h2>
+        <div class="code-block"><pre><code class="language-cpp">double wheelTravel(double circumference, double turns) {
+    return circumference * turns;
+}</code></pre></div>
+        <p><strong>Worked example.</strong> <code>wheelTravel(20.0, 2.0)</code> returns <code>40.0</code>. Each turn of a wheel with a 20 cm circumference covers 20 cm when there is no slip.</p>
+        <p><strong>Your turn.</strong> What does <code>wheelTravel(20.0, 3.5)</code> return? Which argument tells the function how many times the wheel turns?</p>
+        <details class="answer">
+          <summary>Reveal the answer</summary>
+          <p>It returns <code>70.0</code> cm. The second argument, <code>3.5</code>, is assigned to <code>turns</code>.</p>
+        </details>
+      </section>
+
       <div class="page-footer">
         <div class="footer-nav">
           <a href="tips.html" class="footer-nav-link">&#8592; Tips for Coders</a>
@@ -456,7 +458,7 @@ wait(1, sec);</code></pre>
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

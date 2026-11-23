@@ -12,93 +12,29 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>VEX Concepts - VEXLearn</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-  <style>
-    .port-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .port-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-    }
-    .port-card h4 {
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.95rem;
-      color: var(--accent-yellow);
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-    .port-card p { margin: 0; font-size: 0.875rem; color: var(--text-secondary); }
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .compare-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-    }
-    .compare-card.winner {
-      border-color: var(--accent-green);
-      background: rgba(46,204,113,0.05);
-    }
-    .compare-card h4 {
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.95rem;
-      margin-top: 0;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .compare-card.winner h4 { color: var(--accent-green); }
-    .compare-card ul { margin: 0; padding-left: 18px; }
-    .compare-card ul li { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 6px; }
-    @media (max-width: 600px) {
-      .port-grid, .compare-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" type="button" aria-controls="guide-sidebar" aria-expanded="false" hidden>Contents</button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
+    <aside class="sidebar" id="guide-sidebar" aria-label="Page contents">
       <div class="toc-title">VEX Concepts</div>
       <ul class="toc-list">
         <li><a href="#connecting">Connecting to the Brain</a></li>
@@ -113,18 +49,14 @@
         <li class="toc-sub"><a href="#pid-visualizer">Interactive PID Demo</a></li>
         <li><a href="#volt-vs-rpm">Voltage vs. RPM Control</a></li>
         <li><a href="#heading">Absolute Heading</a></li>
+        <li><a href="#practice">Practice exercise</a></li>
       </ul>
     </aside>
 
-    <main class="content">
+    <main class="content" id="main-content" tabindex="-1">
       <div class="page-hero">
-        <h1>VEX <span class="highlight">Concepts</span></h1>
-        <p>Everything you need to know about connecting to the VEX Brain, motor configuration, ports, PID control, threads, and inertial heading.</p>
-        <div class="page-badges">
-          <span class="badge badge-purple">VEX V5</span>
-          <span class="badge badge-yellow">PID</span>
-          <span class="badge badge-green">Hardware</span>
-        </div>
+        <h1>VEX Concepts</h1>
+        <p>How VEX V5 hardware maps to C++ and how the template uses motors, sensors, and PID.</p>
       </div>
 
       <!-- Connecting -->
@@ -210,9 +142,9 @@ motor_group LeftChassis(LeftFront, LeftBack);</code></pre>
       <h2 id="ports">How Ports Work</h2>
       <p>Ports connect hardware components to the Brain via cables. There are two types:</p>
 
-      <div class="port-grid">
-        <div class="port-card">
-          <h4>Smart Ports (Top of Brain)</h4>
+      <div class="reference-comparison">
+        <div>
+          <h3>Smart Ports (top of Brain)</h3>
           <p>Used for motors, sensors, and the radio. Referenced in code as:</p>
           <div class="code-block" style="margin-top:12px;">
             <div class="code-block-header"><span class="code-lang">C++</span><button class="copy-btn">Copy</button></div>
@@ -221,8 +153,8 @@ PORT6
 PORT20</code></pre>
           </div>
         </div>
-        <div class="port-card">
-          <h4>Three-Wire Ports (Side of Brain)</h4>
+        <div>
+          <h3>Three-wire ports (side of Brain)</h3>
           <p>Used for piston controllers and some sensors. Referenced as functions of the Brain object:</p>
           <div class="code-block" style="margin-top:12px;">
             <div class="code-block-header"><span class="code-lang">C++</span><button class="copy-btn">Copy</button></div>
@@ -261,17 +193,17 @@ double gearRatio = 4.0 / 3.0;</code></pre>
       <h2 id="motors">6-Watt vs. 12-Watt Motors</h2>
       <p>The only software difference between 6W and 12W motors is how they're initialized:</p>
 
-      <div class="compare-grid">
-        <div class="compare-card">
-          <h4>6-Watt Motors</h4>
+      <div class="reference-comparison">
+        <div>
+          <h3>6-watt motors</h3>
           <ul>
             <li>No internal gear cartridge</li>
             <li>No gear ratio argument in initialization</li>
             <li>Fixed RPM</li>
           </ul>
         </div>
-        <div class="compare-card">
-          <h4>12-Watt Motors</h4>
+        <div>
+          <h3>12-watt motors</h3>
           <ul>
             <li>Has swappable gear cartridge</li>
             <li>Requires gear ratio argument (<code>ratio6_1</code>, etc.)</li>
@@ -405,38 +337,38 @@ if (distError * distErrorPrev < 0) {
       <div class="pid-visualizer">
         <div class="pid-controls">
           <div class="pid-control">
-            <label>Kp (Proportional) <span id="pid-kp-val">4.0</span></label>
+            <label for="pid-kp">Kp (Proportional) <span id="pid-kp-val" aria-hidden="true">4.0</span></label>
             <div class="pid-input-row">
               <input type="range" id="pid-kp" min="0" max="10" step="0.1" value="4.0">
-              <input type="number" id="pid-kp-num" class="pid-num-input" min="0" max="10" step="0.1" value="4.0">
+              <input type="number" id="pid-kp-num" class="pid-num-input" min="0" max="10" step="0.1" value="4.0" aria-label="Kp value">
             </div>
           </div>
           <div class="pid-control">
-            <label>Ki (Integral) <span id="pid-ki-val">0.00</span></label>
+            <label for="pid-ki">Ki (Integral) <span id="pid-ki-val" aria-hidden="true">0.00</span></label>
             <div class="pid-input-row">
               <input type="range" id="pid-ki" min="0" max="0.5" step="0.01" value="0.0">
-              <input type="number" id="pid-ki-num" class="pid-num-input" min="0" max="0.5" step="0.01" value="0.0">
+              <input type="number" id="pid-ki-num" class="pid-num-input" min="0" max="0.5" step="0.01" value="0.0" aria-label="Ki value">
             </div>
           </div>
           <div class="pid-control">
-            <label>Kd (Derivative) <span id="pid-kd-val">0.2</span></label>
+            <label for="pid-kd">Kd (Derivative) <span id="pid-kd-val" aria-hidden="true">0.2</span></label>
             <div class="pid-input-row">
               <input type="range" id="pid-kd" min="0" max="10" step="0.1" value="0.2">
-              <input type="number" id="pid-kd-num" class="pid-num-input" min="0" max="10" step="0.1" value="0.2">
+              <input type="number" id="pid-kd-num" class="pid-num-input" min="0" max="10" step="0.1" value="0.2" aria-label="Kd value">
             </div>
           </div>
         </div>
         <canvas id="pid-canvas" role="img" aria-label="Graph of a simulated PID controller approaching its target" aria-describedby="pid-status"></canvas>
         <p id="pid-status" class="sr-only" aria-live="polite"></p>
-        <button class="pid-btn" id="pid-run" type="button">&#9654; Animate</button>
+        <button class="pid-btn" id="pid-run" type="button">Animate</button>
       </div>
 
       <!-- Voltage vs. RPM -->
       <h2 id="volt-vs-rpm">Voltage Control vs. RPM Control</h2>
 
-      <div class="compare-grid">
-        <div class="compare-card winner">
-          <h4>&#10003; Voltage Control (Recommended)</h4>
+      <div class="reference-comparison">
+        <div>
+          <h3>Voltage control (recommended)</h3>
           <ul>
             <li>Directly sets how much power the motor receives</li>
             <li>No speed cap: motors can exceed rated RPM when unloaded</li>
@@ -444,8 +376,8 @@ if (distError * distErrorPrev < 0) {
             <li>Faster acceleration and higher top-end performance</li>
           </ul>
         </div>
-        <div class="compare-card">
-          <h4>&#10007; RPM Control</h4>
+        <div>
+          <h3>RPM control</h3>
           <ul>
             <li>Motor self-limits to maintain a fixed RPM</li>
             <li>Uses a built-in internal PID loop</li>
@@ -513,6 +445,17 @@ Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
 }</code></pre>
       </div>
 
+      <section class="practice" aria-labelledby="practice">
+        <h2 id="practice">Practice: Read a motor configuration</h2>
+        <div class="code-block"><pre><code class="language-cpp">motor LeftMotor1 = motor(PORT1, ratio6_1, true);</code></pre></div>
+        <p><strong>Worked example.</strong> In the template, <code>LeftMotor1</code> uses Smart Port 1 and a 6:1 motor cartridge. The final <code>true</code> reverses its direction in software.</p>
+        <p><strong>Your turn.</strong> If you move only this motor's cable to Smart Port 4, which argument changes?</p>
+        <details class="answer">
+          <summary>Reveal the answer</summary>
+          <p>Change <code>PORT1</code> to <code>PORT4</code> in <code>robotConfig.cpp</code>. The cartridge and direction stay the same.</p>
+        </details>
+      </section>
+
       <div class="page-footer">
         <div class="footer-nav">
           <a href="cpp.html" class="footer-nav-link">&#8592; C++ Fundamentals</a>
@@ -525,7 +468,7 @@ Motor.spin(forward, 200, rpm);  // locks to 200 RPM</code></pre>
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

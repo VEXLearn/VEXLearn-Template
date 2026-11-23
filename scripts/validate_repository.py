@@ -181,9 +181,12 @@ def validate_html(errors: list[str]) -> None:
     require(curriculum in pages, "Curriculum page is missing", errors)
     if curriculum in pages:
         source = curriculum.read_text(encoding="utf-8")
-        require('data-storage-key="vexlearn-foundations-progress-v1"' in source, "Curriculum progress storage is missing", errors)
+        progress = re.search(
+            r'<ul\b[^>]*data-storage-key="vexlearn-foundations-progress-v1"[^>]*>(.*?)</ul>', source, re.S
+        )
+        require(progress is not None, "Curriculum progress storage is missing", errors)
         expected_ids = {f"module-{number}" for number in range(7)} | {"capstone"}
-        check_ids = set(re.findall(r'data-check-id="([^"]+)"', source))
+        check_ids = set(re.findall(r'data-check-id="([^"]+)"', progress[1])) if progress else set()
         require(check_ids == expected_ids, f"Unexpected curriculum progress IDs: {sorted(check_ids)}", errors)
 
     curriculum_files = DOCS / "curriculum"
@@ -209,7 +212,11 @@ def validate_versions_and_apis(errors: list[str]) -> None:
     current_surfaces = "\n".join((readme, website))
     source_and_documentation = "\n".join((current_surfaces, template_text))
 
-    require(f"Version {VERSION} is the current stable release" in readme, "README stable version is outdated", errors)
+    require(
+        "https://github.com/VEXLearn/VEXLearn-Template/releases/latest" in readme,
+        "README latest release link is missing",
+        errors,
+    )
     require(f"## [{VERSION}] - 2026-08-06" in changelog, "Changelog release date or version is outdated", errors)
     require(f"v{VERSION}</span>" in website, "Website version badge is outdated", errors)
     require(f"Software Version: {VERSION}" in template_text, "Template display version is outdated", errors)

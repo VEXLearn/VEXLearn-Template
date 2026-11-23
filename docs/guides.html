@@ -12,392 +12,66 @@
   <meta property="og:image" content="https://vexlearn.github.io/VEXLearn-Template/images/vexlearn-logo.png">
   <title>Guides - VEXLearn</title>
   <link rel="icon" href="images/vexlearn-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-  <style>
-    .guide-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    .guide-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      text-decoration: none;
-      display: block;
-      transition: var(--transition);
-    }
-
-    .guide-card:hover {
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 0 1px rgba(123,63,228,0.3), var(--shadow);
-      transform: translateY(-3px);
-      text-decoration: none;
-    }
-
-    .guide-card-icon {
-      font-size: 2.6rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .guide-card-tag {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-purple-light);
-      background: rgba(124,58,237,0.1);
-      border: 1px solid rgba(124,58,237,0.2);
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-
-    .guide-card-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .guide-card-desc {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-
-    .guide-card-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .guide-card-detail {
-      border-top: 1px solid var(--border-solid);
-      padding-top: 16px;
-      margin-top: 4px;
-    }
-
-    .guide-card-detail-title {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .guide-card-detail ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .guide-card-detail li {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      padding-left: 14px;
-      position: relative;
-    }
-
-    .guide-card-detail li::before {
-      content: '\2713';
-      position: absolute;
-      left: 0;
-      color: var(--accent-purple-light);
-      font-weight: 700;
-    }
-
-    .guide-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--accent-purple-light);
-      margin-top: 16px;
-      transition: var(--transition);
-    }
-
-    .guide-card:hover .guide-card-cta {
-      gap: 10px;
-      color: var(--text-primary);
-    }
-
-    .guide-audience {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .audience-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-    }
-
-    .audience-badge {
-      font-size: 0.72rem;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .audience-beginner {
-      background: rgba(34,197,94,0.12);
-      color: var(--accent-green);
-      border: 1px solid rgba(34,197,94,0.2);
-    }
-
-    .audience-intermediate {
-      background: rgba(245,158,11,0.12);
-      color: var(--accent-yellow-light);
-      border: 1px solid rgba(245,158,11,0.2);
-    }
-
-    .audience-any {
-      background: rgba(124,58,237,0.12);
-      color: var(--accent-purple-light);
-      border: 1px solid rgba(124,58,237,0.2);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <header>
-    <nav class="nav-inner">
-      <a class="nav-logo" href="index.html">
-        <img src="images/vexlearn-icon.png?v=4" alt="VEXLearn" class="nav-logo-img" height="51">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="VEXLearn home">
+        <span class="site-mark"><img src="images/vexlearn-original.png" width="400" height="400" alt=""></span>
+        <span class="nav-brand">VEXLearn</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="curriculum.html">Curriculum</a></li>
+        <li><a href="curriculum.html">Course</a></li>
         <li><a href="setup.html">Setup</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="cpp.html">C++ Fundamentals</a></li>
-        <li><a href="vex-concepts.html">VEX Concepts</a></li>
+        <li><a href="guides.html">Guides</a></li>
       </ul>
-      <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" class="nav-download-btn">Download Template</a>
-      <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-controls="guide-sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" type="button" aria-controls="guide-sidebar" aria-expanded="false" hidden>Contents</button>
     </nav>
   </header>
 
   <div class="layout">
-    <aside class="sidebar" id="guide-sidebar">
-      <div class="sidebar-logo-wrap">
-        <img src="images/vexlearn-logo.png?v=4" alt="VEXLearn" class="sidebar-logo" height="70">
-        <a href="index.html" class="sidebar-main-menu">Main Menu</a>
-      </div>
-      <div class="toc-title">Guides</div>
+    <aside class="sidebar" id="guide-sidebar" aria-label="Page contents">
+      <div class="toc-title">On this page</div>
       <ul class="toc-list">
-        <li><a href="#setup">VEXLearn Template Setup</a></li>
-        <li><a href="#tips">Tips for Coders</a></li>
-        <li><a href="#cpp">C++ Fundamentals</a></li>
-        <li><a href="#vex-concepts">VEX Concepts</a></li>
+        <li><a href="#guides-list">Guide topics</a></li>
+        <li><a href="#practice">Practice exercises</a></li>
+        <li><a href="#downloads">Downloads</a></li>
       </ul>
     </aside>
 
-    <main class="content">
+    <main class="content" id="main-content" tabindex="-1">
       <div class="page-hero">
-        <h1>Available <span class="highlight">Guides</span></h1>
-        <p>Browse the learning guides included with VEXLearn. Whether you're new to C++ or want to understand how VEX robots work under the hood, there's a guide for you.</p>
-        <div class="page-badges">
-          <span class="badge badge-purple">4 Guides</span>
-          <span class="badge badge-yellow">C++</span>
-          <span class="badge badge-green">VEX V5</span>
-        </div>
+        <h1>Guides</h1>
+        <p>VEXLearn setup instructions, C++ reference, and practice exercises.</p>
       </div>
 
-      <div class="callout info" style="margin-bottom: 36px;">
-        <span class="callout-icon" aria-hidden="true">&#9432;</span>
-        <div class="callout-content">
-          <strong>Want a more comprehensive reference?</strong><br>
-          VEXLearn Guide v3.2 provides deeper explanations, extended examples, and printable reference material. <a href="https://github.com/VEXLearn/VEXLearn-Template/releases/latest" target="_blank" rel="noopener" style="color: var(--accent-purple-light); font-weight: 700;">Download the latest guide and template release &#8594;</a>
-        </div>
-      </div>
+      <h2 id="guides-list">Guide topics</h2>
+      <ul class="guide-list">
+        <li id="setup"><a href="setup.html">Setup Guide</a><p>Install the tools and configure the template for your robot.</p></li>
+        <li id="cpp"><a href="cpp.html">C++ Fundamentals</a><p>Read and write variables, loops, functions, and headers.</p></li>
+        <li id="vex-concepts"><a href="vex-concepts.html">VEX Concepts</a><p>Understand ports, motor control, inertial heading, and PID.</p></li>
+        <li id="tips"><a href="tips.html">Tips for Coders</a><p>Plan autonomous routines, test changes, and document what worked.</p></li>
+      </ul>
 
-      <div id="guides-list" class="guide-card-grid">
+      <h2 id="practice">Practice exercises</h2>
+      <p>Read a worked example, try the exercise, then reveal the answer.</p>
+      <ul class="guide-list">
+        <li><a href="setup.html#practice">Find the right project folder</a><p>Recognize a project VS Code can build.</p></li>
+        <li><a href="cpp.html#practice">Trace a C++ function</a><p>Predict a return value with no robot required.</p></li>
+        <li><a href="vex-concepts.html#practice">Read a motor configuration</a><p>Match a line of C++ to a port on the Brain.</p></li>
+        <li><a href="tips.html#practice">Plan a fair autonomous test</a><p>Change one variable and choose what to record.</p></li>
+      </ul>
 
-        <!-- Curriculum -->
-        <a href="curriculum.html" class="guide-card" id="curriculum">
-          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
-          <span class="guide-card-tag">Curriculum</span>
-          <div class="guide-card-title">VEXLearn Foundations</div>
-          <div class="guide-audience">
-            <span class="audience-label">Best for</span>
-            <span class="audience-badge audience-beginner">Beginners</span>
-          </div>
-          <p class="guide-card-desc">
-            An eight-module learning pathway from C++ fundamentals and robot configuration to PID tuning, reliability testing, and an autonomous capstone.
-          </p>
-          <div class="guide-card-topics">
-            <span class="topic-tag">10-14 Hours</span>
-            <span class="topic-tag">Two Pathways</span>
-            <span class="topic-tag">Worksheets</span>
-            <span class="topic-tag">Capstone</span>
-          </div>
-          <div class="guide-card-detail">
-            <div class="guide-card-detail-title">What you'll learn</div>
-            <ul>
-              <li>How VEXLearn source files work together</li>
-              <li>How to configure and control a tank-drive robot</li>
-              <li>How to plan and program autonomous movement</li>
-              <li>How to tune PID using recorded evidence</li>
-              <li>How to test reliability across repeated trials</li>
-            </ul>
-          </div>
-          <span class="guide-card-cta">Start curriculum &#8594;</span>
-        </a>
-
-        <!-- Setup -->
-        <a href="setup.html" class="guide-card" id="setup">
-          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
-          <span class="guide-card-tag">Guide 01</span>
-          <div class="guide-card-title">VEXLearn Template Setup</div>
-          <div class="guide-audience">
-            <span class="audience-label">Best for</span>
-            <span class="audience-badge audience-beginner">Beginners</span>
-          </div>
-          <p class="guide-card-desc">
-            Step-by-step instructions for getting the VEXLearn template up and running. Covers installing VS Code, adding the VEX extension, downloading the template, and configuring it for your robot.
-          </p>
-          <div class="guide-card-topics">
-            <span class="topic-tag">VS Code</span>
-            <span class="topic-tag">VEX Extension</span>
-            <span class="topic-tag">Template Setup</span>
-            <span class="topic-tag">robotConfig.cpp</span>
-          </div>
-          <div class="guide-card-detail">
-            <div class="guide-card-detail-title">What you'll learn</div>
-            <ul>
-              <li>How to install Visual Studio Code on Windows</li>
-              <li>How to add the VEX Robotics extension</li>
-              <li>How to download and open the VEXLearn template</li>
-              <li>How to configure motors, sensors, and ports</li>
-              <li>How to build and download code to your robot</li>
-            </ul>
-          </div>
-          <span class="guide-card-cta">Read guide &#8594;</span>
-        </a>
-
-        <!-- Tips for Coders -->
-        <a href="tips.html" class="guide-card" id="tips">
-          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
-          <span class="guide-card-tag">Guide 02</span>
-          <div class="guide-card-title">Tips for Coders</div>
-          <div class="guide-audience">
-            <span class="audience-label">Best for</span>
-            <span class="audience-badge audience-any">All levels</span>
-          </div>
-          <p class="guide-card-desc">
-            Real-world advice from two years of VEX competition. Covers how to approach autonomous programming, what makes a good template, avoiding burnout, and working with your team effectively.
-          </p>
-          <div class="guide-card-topics">
-            <span class="topic-tag">Autonomous Strategy</span>
-            <span class="topic-tag">PID Tuning</span>
-            <span class="topic-tag">Teamwork</span>
-            <span class="topic-tag">Engineering Notebook</span>
-          </div>
-          <div class="guide-card-detail">
-            <div class="guide-card-detail-title">What you'll learn</div>
-            <ul>
-              <li>How to write reliable autonomous routines</li>
-              <li>What to look for in a code template</li>
-              <li>Task order and time management before competitions</li>
-              <li>How to avoid common coder burnout traps</li>
-              <li>When to use volt vs. RPM motor control</li>
-            </ul>
-          </div>
-          <span class="guide-card-cta">Read guide &#8594;</span>
-        </a>
-
-        <!-- C++ Fundamentals -->
-        <a href="cpp.html" class="guide-card" id="cpp">
-          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
-          <span class="guide-card-tag">Guide 03</span>
-          <div class="guide-card-title">C++ Fundamentals</div>
-          <div class="guide-audience">
-            <span class="audience-label">Best for</span>
-            <span class="audience-badge audience-beginner">Beginners</span>
-          </div>
-          <p class="guide-card-desc">
-            A concise reference to the C++ concepts used throughout the VEXLearn template. Covers the building blocks you need to read and write VEX robot code without prior programming experience.
-          </p>
-          <div class="guide-card-topics">
-            <span class="topic-tag">Data Types</span>
-            <span class="topic-tag">Variables</span>
-            <span class="topic-tag">Loops</span>
-            <span class="topic-tag">Functions</span>
-            <span class="topic-tag">OOP</span>
-            <span class="topic-tag">Header Files</span>
-          </div>
-          <div class="guide-card-detail">
-            <div class="guide-card-detail-title">What you'll learn</div>
-            <ul>
-              <li>Data types: int, double, bool, string, and more</li>
-              <li>Variables, operators, and expressions</li>
-              <li>If statements, for loops, and while loops</li>
-              <li>Writing and calling functions</li>
-              <li>Classes, objects, and namespaces</li>
-              <li>How .h header files and .cpp source files work together</li>
-            </ul>
-          </div>
-          <span class="guide-card-cta">Read guide &#8594;</span>
-        </a>
-
-        <!-- VEX Concepts -->
-        <a href="vex-concepts.html" class="guide-card" id="vex-concepts">
-          <span class="guide-card-icon" aria-hidden="true">&#9656;</span>
-          <span class="guide-card-tag">Guide 04</span>
-          <div class="guide-card-title">VEX Concepts</div>
-          <div class="guide-audience">
-            <span class="audience-label">Best for</span>
-            <span class="audience-badge audience-intermediate">Intermediate</span>
-          </div>
-          <p class="guide-card-desc">
-            A deep dive into the programming concepts specific to VEX V5 robots. Covers how the brain, motors, and sensors work in code, and explains PID control, threading, and inertial heading in plain language.
-          </p>
-          <div class="guide-card-topics">
-            <span class="topic-tag">PID Control</span>
-            <span class="topic-tag">Threads</span>
-            <span class="topic-tag">Motors</span>
-            <span class="topic-tag">Ports</span>
-            <span class="topic-tag">Gear Ratios</span>
-            <span class="topic-tag">Inertial Sensor</span>
-          </div>
-          <div class="guide-card-detail">
-            <div class="guide-card-detail-title">What you'll learn</div>
-            <ul>
-              <li>How ports, motors, and sensors are configured in code</li>
-              <li>Volt vs. RPM motor control and when to use each</li>
-              <li>How PID works and how to tune it for your robot</li>
-              <li>What threads are and how the template uses them</li>
-              <li>Gear ratio calculations for accurate movement</li>
-              <li>Using the inertial sensor for precise turns</li>
-            </ul>
-          </div>
-          <span class="guide-card-cta">Read guide &#8594;</span>
-        </a>
-
-      </div>
+      <h2 id="downloads">Downloads</h2>
+      <ul class="resource-links">
+        <li><a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Template.V1.0.0.zip">Template ZIP</a></li>
+        <li><a href="https://github.com/VEXLearn/VEXLearn-Template/releases/download/V1.0.0/VEXLearn.Guide.V3.2.pdf">Guide PDF</a></li>
+      </ul>
+      <p id="curriculum">For a guided sequence, <a href="curriculum.html">start Foundations</a>.</p>
 
       <div class="page-footer">
         <div class="footer-nav">
@@ -411,7 +85,6 @@
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>
